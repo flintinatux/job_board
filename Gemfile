@@ -4,8 +4,10 @@ gem 'rails', '4.0.0'
 
 # Backend
 gem 'dalli'
+gem 'foreman'
 gem 'memcacheable'
 gem 'pg'
+gem 'pg_search'
 gem 'puma'
 gem 'rack-no-www'
 
@@ -17,8 +19,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder',     '~> 1.2'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+group :production do
+  gem 'therubyracer', platforms: :ruby
+end
 
 group :development, :test do
   gem 'faker'
@@ -29,12 +32,10 @@ end
 
 group :development do
   gem 'annotate'
-  gem 'foreman'
   gem 'haml-rails'
 end
 
 group :test do
-  gem 'capybara'
   gem 'factory_girl_rails'
   gem 'guard-spork'
   gem 'libnotify'
