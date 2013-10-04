@@ -10,6 +10,7 @@ gem 'pg'
 gem 'pg_search'
 gem 'puma'
 gem 'rack-no-www'
+gem 'validate_url'
 
 # Frontend
 gem 'sass-rails',   '~> 4.0.0'
@@ -37,7 +38,6 @@ end
 
 group :test do
   gem 'factory_girl_rails'
-  gem 'guard-spork'
   gem 'libnotify'
   gem 'rb-inotify'
   gem 'database_cleaner', '~> 1.0.0.RC1'
