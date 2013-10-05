@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: listings
+# Table name: jobs
 #
 #  id           :integer          not null, primary key
 #  title        :string(255)
@@ -19,21 +19,22 @@
 
 require 'spec_helper'
 
-describe Listing do
+describe Job do
+  let(:title) { 'A job' }
+  let(:company) { Faker::Company.name }
+  let(:url) { "http://www.#{company.gsub(/\W/,'').underscore.dasherize}.com" }
   before do
-    company = Faker::Company.name
-    url = "http://www.#{company.gsub(/\W/,'').underscore.dasherize}.com"
-    @listing = Listing.new  title:        'A job',
-                            category:     'hardwork',
-                            location:     'Anywhere',
-                            description:  'Making widgets'*100,
-                            instructions: 'Email somebody',
-                            company:      company,
-                            url:          url,
-                            email:        Faker::Internet.email
+    @job = Job.new  title:        title,
+                    category:     'hardwork',
+                    location:     'Anywhere',
+                    description:  'Making widgets'*100,
+                    instructions: 'Email somebody',
+                    company:      company,
+                    url:          url,
+                    email:        Faker::Internet.email
   end
 
-  subject { @listing }
+  subject { @job }
 
   it { should respond_to :title }
   it { should respond_to :category }
@@ -111,6 +112,14 @@ describe Listing do
 
     it "sets expires_at to some time later than now" do
       subject.expires_at.should > Time.now
+    end
+  end
+
+  describe "when persisted" do
+    before { subject.save }
+
+    it "includes the title in the param" do
+      subject.to_param.should =~ /#{title.parameterize}/
     end
   end
 end

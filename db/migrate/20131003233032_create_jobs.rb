@@ -1,6 +1,6 @@
-class CreateListings < ActiveRecord::Migration
+class CreateJobs < ActiveRecord::Migration
   def change
-    create_table :listings do |t|
+    create_table :jobs do |t|
       t.string    :title
       t.string    :category
       t.string    :location
@@ -15,6 +15,6 @@ class CreateListings < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :listings, :expires_at
+    add_index :jobs, :expires_at
   end
 end

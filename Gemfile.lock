@@ -29,6 +29,11 @@ GEM
       rake
     arel (4.0.0)
     atomic (1.1.14)
+    bcrypt-ruby (3.0.1)
+    bootstrap-sass-rails (3.0.0.3)
+      railties (>= 3.1.0)
+      sass-rails (>= 3.1.0)
+    bower-rails (0.5.0)
     builder (3.1.4)
     coderay (1.0.9)
     coffee-rails (4.0.0)
@@ -39,7 +44,7 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     dalli (2.6.4)
-    database_cleaner (1.0.1)
+    database_cleaner (1.0.0.RC1)
     diff-lcs (1.2.4)
     dotenv (0.9.0)
     erubis (2.7.0)
@@ -52,6 +57,8 @@ GEM
     faker (1.2.0)
       i18n (~> 0.5)
     ffi (1.9.0)
+    font-awesome-sass (3.2.1.4)
+      sass-rails (>= 3.1.1)
     foreman (0.63.0)
       dotenv (>= 0.7)
       thor (>= 0.13.6)
@@ -136,6 +143,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redcarpet (3.0.0)
     ref (1.0.5)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
@@ -195,13 +203,18 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  bcrypt-ruby (~> 3.0.0)
+  bootstrap-sass-rails
+  bower-rails
   coffee-rails (~> 4.0.0)
   dalli
   database_cleaner (~> 1.0.0.RC1)
   factory_girl_rails
   faker
+  font-awesome-sass
   foreman
   guard-rspec
+  haml
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails
@@ -213,6 +226,7 @@ DEPENDENCIES
   rack-no-www
   rails (= 4.0.0)
   rb-inotify
+  redcarpet
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc

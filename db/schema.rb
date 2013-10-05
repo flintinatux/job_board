@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131003233032) do
+ActiveRecord::Schema.define(version: 20131004190600) do
 
-  create_table "listings", force: true do |t|
+  create_table "jobs", force: true do |t|
     t.string   "title"
     t.string   "category"
     t.string   "location"
@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(version: 20131003233032) do
     t.datetime "updated_at"
   end
 
-  add_index "listings", ["expires_at"], name: "index_listings_on_expires_at", using: :btree
+  add_index "jobs", ["expires_at"], name: "index_jobs_on_expires_at", using: :btree
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "remember_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 
 end

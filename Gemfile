@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Backend
+gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'dalli'
 gem 'foreman'
 gem 'memcacheable'
@@ -13,12 +14,17 @@ gem 'rack-no-www'
 gem 'validate_url'
 
 # Frontend
-gem 'sass-rails',   '~> 4.0.0'
-gem 'uglifier',     '>= 1.3.0'
+gem 'bootstrap-sass-rails'
+gem 'bower-rails'
 gem 'coffee-rails', '~> 4.0.0'
+gem 'font-awesome-sass'
+gem 'haml'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder',     '~> 1.2'
+gem 'redcarpet'
+gem 'sass-rails',   '~> 4.0.0'
+gem 'uglifier',     '>= 1.3.0'
 
 group :production do
   gem 'therubyracer', platforms: :ruby

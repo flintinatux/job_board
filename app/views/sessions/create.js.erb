@@ -1,0 +1,5 @@
+<% if @authenticated %>
+  Turbolinks.visit("<%= root_path %>")
+<% else %>
+  $('#flash_messages').html("<%= j render('flash_messages') %>")
+<% end %>

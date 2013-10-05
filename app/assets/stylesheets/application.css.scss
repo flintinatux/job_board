@@ -1,0 +1,83 @@
+@import "twitter/bootstrap";
+@import "font-awesome";
+
+.wf-loading {
+  .tk-goudy-bookletter-1911 {
+    visibility: hidden;
+  }
+}
+
+.wf-active, .wf-active {
+  .tk-goudy-bookletter-1911 {
+    visibility: visible;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+body {
+  background-color: #EDF3FE;
+
+  #header {
+    margin-top: 35px;
+    margin-bottom: 15px;
+
+    h1.title {
+      float: left;
+      font-size: 50px;
+      margin: 0;
+
+      a {
+        color: #333;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    p {
+      float: right;
+      font-size: 12px;
+      padding: 10px;
+      margin: 0;
+      line-height: 1.4em;
+      text-align: center;
+      color: #444;
+      width: 490px;
+      border: 1px solid #c1cad9;
+      border-left: 0;
+      border-right: 0;
+    }
+
+    nav {
+      a {
+        margin-left: 15px;
+      }
+    }
+  }
+
+  #content {
+    padding-top: 15px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 3px 3px 3px #ccc;
+    -moz-box-shadow: 3px 3px 3px #ccc;
+    -webkit-box-shadow: 3px 3px 3px #ccc;
+    border-top: 1px solid #e8e8e8;
+    border-left: 1px solid #e8e8e8;
+  }
+
+  #footer {
+    overflow: hidden;
+    margin-bottom: 40px;
+    padding-top: 10px;
+    font-size: 10px;
+    color: #666;
+  }
+}
+
+@import "jobs";
+@import "sessions";

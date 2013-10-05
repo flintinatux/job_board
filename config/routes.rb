@@ -1,4 +1,16 @@
 JobBoard::Application.routes.draw do
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :jobs do
+    collection do
+      get :search
+    end
+  end
+
+  get    '/signin',  to: 'sessions#new'
+  delete '/signout', to: 'sessions#destroy'
+
+  root 'jobs#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -39,7 +51,7 @@ JobBoard::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

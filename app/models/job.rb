@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: listings
+# Table name: jobs
 #
 #  id           :integer          not null, primary key
 #  title        :string(255)
@@ -17,20 +17,23 @@
 #  updated_at   :datetime
 #
 
-class Listing < ActiveRecord::Base
+class Job < ActiveRecord::Base
+  include Parameterized
+
+  parameterized_by :title
   after_initialize :set_defaults
 
+  DURATION = 30.days
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  DURATION = 2.months
 
-  validates :title, presence: true
-  validates :category, presence: true
-  validates :location, presence: true
-  validates :description, presence: true, length: { minimum: 150 }
-  validates :instructions, presence: true
-  validates :company, presence: true
-  validates :url, url: true
-  validates :email, presence: true, format: { with: EMAIL_REGEX }
+  validates :title,         presence: true
+  validates :category,      presence: true
+  validates :location,      presence: true
+  validates :description,   presence: true, length: { minimum: 150 }
+  validates :instructions,  presence: true
+  validates :company,       presence: true
+  validates :url,           url: true
+  validates :email,         presence: true, format: { with: EMAIL_REGEX }
 
   default_scope { order('created_at desc') }
 
