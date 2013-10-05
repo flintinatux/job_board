@@ -19,8 +19,7 @@
 
 class Job < ActiveRecord::Base
   include Parameterized
-
-  parameterized_by :title
+  parameterize_by :title
   after_initialize :set_defaults
 
   DURATION = 30.days

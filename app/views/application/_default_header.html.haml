@@ -6,7 +6,7 @@
     = link_to signout_path, method: :delete, remote: :true, format: :js, class: 'btn btn-primary pull-right' do
       %icon.icon-signout
       Sign out
-    = link_to '#', class: 'btn btn-default pull-right' do
+    = link_to boards_path, class: 'btn btn-default pull-right' do
       %icon.icon-th-large
       Boards
 - else

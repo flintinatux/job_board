@@ -1,0 +1,28 @@
+= form_for @board, remote: true, format: :js do |f|
+  .btn-group.pull-right
+    %button.btn.btn-primary{ data: { disable_with: 'Saving...' } }
+      %icon.icon-save
+      Save board
+    = link_to boards_path, class: 'btn btn-default' do
+      %icon.icon-remove
+      Cancel
+  %h1.tk-goudy-bookletter-1911= title
+  = render 'form_error_message', object: f.object
+  .row
+    .form-group.col-md-4
+      = f.label :subdomain, class: 'control-label'
+      = f.text_field :subdomain, class: 'form-control', placeholder: 'Subdomain'
+      = render 'field_error_message', object: f.object, field: :subdomain
+    .form-group.col-md-8
+      = f.label :title, class: 'control-label'
+      = f.text_field :title, class: 'form-control', placeholder: 'Title'
+      = render 'field_error_message', object: f.object, field: :title
+  .row
+    .form-group.col-md-4
+      = f.label :icon, class: 'control-label'
+      = f.text_field :icon, class: 'form-control', placeholder: 'ex: icon-user-md'
+      = render 'field_error_message', object: f.object, field: :icon
+    .form-group.col-md-8
+      = f.label :tagline, 'Tagline', class: 'control-label'
+      = f.text_field :tagline, class: 'form-control', placeholder: "Don't forget to use markdown!"
+      = render 'field_error_message', object: f.object, field: :tagline

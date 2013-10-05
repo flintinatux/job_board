@@ -1,0 +1,16 @@
+.panel.panel-default
+  .panel-heading
+    %h4.panel-title.pull-right
+      = link_to '#', target: '_blank', title: 'View', data: { toggle: :tooltip } do
+        %icon.icon-eye-open
+      = link_to edit_board_path(board), title: 'Edit', data: { toggle: :tooltip } do
+        %icon.icon-pencil
+      = link_to board, method: :delete, remote: true, confirm: 'Are you sure you want to delete this board? You will permanently lose all categories and jobs associated with it.', title: 'Delete', data: { toggle: :tooltip } do
+        %icon.icon-trash
+    %h4.panel-title
+      %a{ href: "##{board.to_param}", data: { toggle: :collapse, parent: '#board_list' } }
+        %icon{ class: board.icon }
+        = board.title
+  .panel-collapse.collapse{ id: board.to_param }
+    .panel-body
+      List of categories

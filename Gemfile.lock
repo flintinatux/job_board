@@ -107,6 +107,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.0)
     pg (0.17.0)
+    pg_array_parser (0.0.9)
     pg_search (0.7.0)
       activerecord (>= 3.1)
       activesupport (>= 3.1)
@@ -221,6 +222,7 @@ DEPENDENCIES
   libnotify
   memcacheable
   pg
+  pg_array_parser
   pg_search
   puma
   rack-no-www

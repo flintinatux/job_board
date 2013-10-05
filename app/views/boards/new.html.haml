@@ -1,0 +1,7 @@
+- provide :title, 'New board'
+- content_for :header do
+  = render 'default_header'
+
+#boards
+  #board_form
+    = render 'board_form', title: 'New board'

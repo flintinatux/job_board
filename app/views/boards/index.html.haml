@@ -1,0 +1,15 @@
+- content_for :header do
+  = render 'default_header'
+
+#boards
+  = link_to new_board_path, class: 'btn btn-primary pull-right' do
+    %icon.icon-plus
+    New board
+  %h1.tk-goudy-bookletter-1911 All boards
+
+  - if @boards.any?
+    #board_list.panel-group
+      = render @boards
+  - else
+    .alert.alert-info
+      %p.center You don't have any boards yet.

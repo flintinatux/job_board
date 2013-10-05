@@ -1,0 +1,5 @@
+<% if @board.valid? %>
+  Turbolinks.visit("<%= boards_path %>")
+<% else %>
+  $('#board_form').html("<%= j render('board_form', title: 'New board') %>")
+<% end %>

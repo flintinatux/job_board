@@ -1,5 +1,6 @@
 JobBoard::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
+  resources :boards
   resources :jobs do
     collection do
       get :search
