@@ -17,6 +17,6 @@
     %ul.list-group
       = render board.categories
       %li.list-group-item
-        = link_to '#' do
+        = link_to new_board_category_path(board) do
           %icon.icon-plus
           Add a category
