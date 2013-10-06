@@ -21,7 +21,7 @@ describe Category do
 
   it { should respond_to :board }
   it { should respond_to :name }
-  # it { should respond_to :jobs }
+  it { should respond_to :jobs }
 
   it { should be_valid }
 

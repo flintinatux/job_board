@@ -4,7 +4,7 @@
 #
 #  id           :integer          not null, primary key
 #  title        :string(255)
-#  category     :string(255)
+#  category_id  :integer
 #  location     :string(255)
 #  description  :text
 #  instructions :string(255)
@@ -20,13 +20,13 @@
 class Job < ActiveRecord::Base
   include Parameterized
   parameterize_by :title
+  belongs_to :category
   after_initialize :set_defaults
 
   DURATION = 30.days
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :title,         presence: true
-  validates :category,      presence: true
   validates :location,      presence: true
   validates :description,   presence: true, length: { minimum: 150 }
   validates :instructions,  presence: true

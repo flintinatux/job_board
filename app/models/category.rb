@@ -11,11 +11,15 @@
 
 class Category < ActiveRecord::Base
   include Parameterized
-  parameterize_by :name
+  parameterize_by :full_name
   belongs_to :board
-  # has_many :jobs
+  has_many :jobs, inverse_of: :category, dependent: :destroy
 
   validates :name, presence: true
 
   default_scope { order('name asc') }
+
+  def full_name
+    "#{name} jobs"
+  end
 end

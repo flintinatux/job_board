@@ -1,8 +1,13 @@
 class BoardsController < ApplicationController
-  before_action :find_board, only: [:edit, :update, :destroy]
+  before_action :signed_in_user
+  before_action :find_boards, only: [:index, :show]
+  before_action :find_board, only: [:show, :edit, :update, :destroy]
 
   def index
-    @boards = Board.all.includes(:categories)
+  end
+
+  def show
+    render 'index'
   end
 
   def new
@@ -32,5 +37,9 @@ class BoardsController < ApplicationController
 
     def find_board
       @board = Board.find params[:id]
+    end
+
+    def find_boards
+      @boards = Board.all.includes :categories
     end
 end

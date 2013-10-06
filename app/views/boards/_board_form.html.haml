@@ -1,12 +1,11 @@
 = form_for @board, remote: true, format: :js do |f|
-  .btn-group.pull-right
+  = render layout: 'content_header', locals: { title: title } do
     %button.btn.btn-primary{ data: { disable_with: 'Saving...' } }
       %icon.icon-save
       Save board
     = link_to boards_path, class: 'btn btn-default' do
       %icon.icon-remove
       Cancel
-  %h1.tk-goudy-bookletter-1911= title
   = render 'form_error_message', object: f.object
   .row
     .form-group.col-md-4

@@ -1,14 +1,15 @@
-%h1.title.tk-goudy-bookletter-1911
-  %icon.icon-user-md
-  = link_to full_title, root_path
-- if signed_in? and not params[:preview]
-  %nav
-    = link_to signout_path, method: :delete, remote: :true, format: :js, class: 'btn btn-primary pull-right' do
-      %icon.icon-signout
-      Sign out
-    = link_to boards_path, class: 'btn btn-default pull-right' do
-      %icon.icon-th-large
-      Boards
-- else
-  :markdown
-    Since 2006, industry leaders including **Apple**, **The New York Times**, **Facebook**, and **American Express** have used this Job Board to reach the best &amp; brightest.
+.row
+  %h1.title.tk-goudy-bookletter-1911.col-md-6
+    %icon{ class: board_icon }
+    = link_to full_title, root_url
+  - if signed_in? and not params[:preview]
+    %nav.col-md-6
+      = link_to signout_path, method: :delete, remote: :true, format: :js, class: 'btn btn-primary pull-right' do
+        %icon.icon-off
+        Sign out
+      = link_to boards_path, class: 'btn btn-default pull-right' do
+        %icon.icon-th-large
+        Boards
+  - else
+    .col-md-6
+      != $markdown.render @current_board.tagline if @current_board

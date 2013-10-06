@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20131006121000) do
 
   create_table "jobs", force: true do |t|
     t.string   "title"
-    t.string   "category"
+    t.integer  "category_id"
     t.string   "location"
     t.text     "description"
     t.string   "instructions"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20131006121000) do
     t.datetime "updated_at"
   end
 
+  add_index "jobs", ["category_id", "expires_at"], name: "index_jobs_on_category_id_and_expires_at", using: :btree
   add_index "jobs", ["expires_at"], name: "index_jobs_on_expires_at", using: :btree
 
   create_table "users", force: true do |t|

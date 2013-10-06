@@ -1,10 +1,6 @@
 module SessionsHelper
-  # def domain_or_site
-  #   @domain || @site
-  # end
-
   def sign_in(user)
-    cookies.permanent.signed[:remember_token] = { value: user.remember_token } #, domain: domain_or_site.domain }
+    cookies.permanent.signed[:remember_token] = { value: user.remember_token }
     current_user = user
   end
 
@@ -15,7 +11,7 @@ module SessionsHelper
   def signed_in_user
     unless signed_in?
       store_location
-      redirect_to signin_url, notice: "Please sign in."
+      redirect_to signin_url, flash: { info: "Please sign in." }
     end
   end
 
@@ -33,7 +29,7 @@ module SessionsHelper
 
   def sign_out
     current_user = nil
-    cookies.delete :remember_token #, domain: domain_or_site.domain
+    cookies.delete :remember_token
   end
 
   def redirect_back_or(default)

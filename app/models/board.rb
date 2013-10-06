@@ -15,7 +15,7 @@
 class Board < ActiveRecord::Base
   include Parameterized
   parameterize_by :subdomain
-  has_many :categories
+  has_many :categories, inverse_of: :board, dependent: :destroy
 
   validates :subdomain, presence: true, uniqueness: { case_sensitive: false }
   validates :title,     presence: true

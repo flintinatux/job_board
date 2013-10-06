@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe BoardsController do
+  before do
+    sign_in FactoryGirl.create(:user)
+  end
+
   context "with existing boards" do
     let!(:boards) { 3.times.map { FactoryGirl.create :board } }
 
@@ -8,7 +12,19 @@ describe BoardsController do
       before { get :index }
 
       it "loads all the boards" do
-        assigns(:boards).should eq boards
+        assigns(:boards).should eq boards.sort_by{ |b| b.title }
+      end
+    end
+
+    describe 'GET #show' do
+      before { get :show, id: boards.first.id }
+
+      it "loads all the boards" do
+        assigns(:boards).should eq boards.sort_by{ |b| b.title }
+      end
+
+      it "finds the correct board" do
+        assigns(:board).should eq boards.first
       end
     end
   end

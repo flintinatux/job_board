@@ -2,10 +2,10 @@
   = render 'default_header'
 
 #boards
-  = link_to new_board_path, class: 'btn btn-primary pull-right' do
-    %icon.icon-plus
-    New board
-  %h1.tk-goudy-bookletter-1911 All boards
+  = render layout: 'content_header', locals: { title: 'All boards' } do
+    = link_to new_board_path, class: 'btn btn-primary pull-right' do
+      %icon.icon-plus
+      New board
 
   - if @boards.any?
     #board_list.panel-group

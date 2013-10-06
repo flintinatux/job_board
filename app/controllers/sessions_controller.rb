@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :enforce_nil_subdomain, only: [:new]
+
   def new
     if signed_in?
       flash[:success] = 'You are already signed in.'
@@ -18,4 +20,10 @@ class SessionsController < ApplicationController
   def destroy
     sign_out
   end
+
+  private
+
+    def enforce_nil_subdomain
+      redirect_to signin_url(subdomain: nil) if subdomain.present?
+    end
 end

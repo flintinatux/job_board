@@ -8,4 +8,11 @@
 
 if Rails.env.development?
   user = User.first || User.create!(name: 'Scott McCormack', email: 'mccormack.scott@gmail.com', password: 'rivoli', password_confirmation: 'rivoli')
+
+  board = Board.first || Board.create!(subdomain: 'medical', title: 'Medical Jobs', icon: 'icon-user-md', tagline: 'Leading companies of the medical industry have used this job board to find top talent.')
+
+  unless board.categories.any?
+    board.categories.create! name: 'nursing'
+    board.categories.create! name: 'physician'
+  end
 end

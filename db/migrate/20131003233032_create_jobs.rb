@@ -2,7 +2,7 @@ class CreateJobs < ActiveRecord::Migration
   def change
     create_table :jobs do |t|
       t.string    :title
-      t.string    :category
+      t.integer   :category_id
       t.string    :location
       t.text      :description
       t.string    :instructions
@@ -16,5 +16,6 @@ class CreateJobs < ActiveRecord::Migration
     end
 
     add_index :jobs, :expires_at
+    add_index :jobs, [:category_id, :expires_at]
   end
 end

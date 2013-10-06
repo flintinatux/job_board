@@ -4,7 +4,7 @@
 #
 #  id           :integer          not null, primary key
 #  title        :string(255)
-#  category     :string(255)
+#  category_id  :integer
 #  location     :string(255)
 #  description  :text
 #  instructions :string(255)
@@ -23,15 +23,15 @@ describe Job do
   let(:title) { 'A job' }
   let(:company) { Faker::Company.name }
   let(:url) { "http://www.#{company.gsub(/\W/,'').underscore.dasherize}.com" }
+  let(:category) { FactoryGirl.create :category }
   before do
-    @job = Job.new  title:        title,
-                    category:     'hardwork',
-                    location:     'Anywhere',
-                    description:  'Making widgets'*100,
-                    instructions: 'Email somebody',
-                    company:      company,
-                    url:          url,
-                    email:        Faker::Internet.email
+    @job = category.jobs.build  title:        title,
+                                location:     'Anywhere',
+                                description:  'Making widgets'*100,
+                                instructions: 'Email somebody',
+                                company:      company,
+                                url:          url,
+                                email:        Faker::Internet.email
   end
 
   subject { @job }
@@ -51,11 +51,6 @@ describe Job do
 
   describe "when title is blank" do
     before { subject.title = ' ' }
-    it { should_not be_valid }
-  end
-
-  describe "when category is blank" do
-    before { subject.category = ' ' }
     it { should_not be_valid }
   end
 

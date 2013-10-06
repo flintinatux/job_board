@@ -1,0 +1,5 @@
+<% if @category.valid? %>
+  Turbolinks.visit("<%= url_for(@board) %>")
+<% else %>
+  $('#category_form').html("<%= j render('category_form', title: 'Edit category') %>")
+<% end %>

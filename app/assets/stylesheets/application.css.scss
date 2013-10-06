@@ -56,7 +56,7 @@ body {
       line-height: 1.4em;
       text-align: center;
       color: #444;
-      width: 490px;
+      // width: 490px;
       border: 1px solid #c1cad9;
       border-left: 0;
       border-right: 0;
@@ -79,10 +79,21 @@ body {
     border-top: 1px solid #e8e8e8;
     border-left: 1px solid #e8e8e8;
 
-    h1 {
-      margin: 0 0 15px 0;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #eeeeee;
+    .content-header {
+      h1 {
+        margin: 0 0 15px 0;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #eeeeee;
+      }
+
+      nav {
+        float: right;
+
+        a, button {
+          float: left;
+          margin-left: 15px;
+        }
+      }
     }
   }
 
@@ -96,5 +107,6 @@ body {
 }
 
 @import "boards";
+@import "categories";
 @import "jobs";
 @import "sessions";
