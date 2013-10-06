@@ -13,4 +13,8 @@
         = board.title
   .panel-collapse.collapse{ id: board.to_param }
     .panel-body
-      List of categories
+      = board.tagline
+    %ul.list-group
+      %li.list-group-item Category 1
+      %li.list-group-item Category 2
+      %li.list-group-item Category 3

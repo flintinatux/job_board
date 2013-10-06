@@ -14,12 +14,21 @@
 
     .panel-title {
       a {
-        margin-left: 5px;
+        margin-left: 7px;
 
         &:hover {
           text-decoration: none;
         }
       }
+    }
+
+    // .panel-collapse {
+    //   @extend .panel;
+    // }
+
+    ul.list-group {
+      margin-bottom: 0;
+      padding: 0 15px 15px 15px;
     }
   }
 }
