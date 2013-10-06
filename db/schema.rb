@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131005130618) do
+ActiveRecord::Schema.define(version: 20131006121000) do
 
   create_table "boards", force: true do |t|
     t.string   "subdomain"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20131005130618) do
   end
 
   add_index "boards", ["subdomain"], name: "index_boards_on_subdomain", using: :btree
+
+  create_table "categories", force: true do |t|
+    t.integer  "board_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["board_id"], name: "index_categories_on_board_id", using: :btree
 
   create_table "jobs", force: true do |t|
     t.string   "title"

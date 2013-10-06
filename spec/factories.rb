@@ -11,4 +11,9 @@ FactoryGirl.define do
     sequence(:title)      { |n| "Job Board #{n}" }
     sequence(:tagline)    { |n| "Everybody likes to post on Job Board #{n}!" }
   end
+
+  factory :category do
+    association :board
+    sequence(:name) { |n| "Category #{n}" }
+  end
 end

@@ -29,6 +29,7 @@ describe Board do
   it { should respond_to :tagline }
   it { should respond_to :icon }
   it { should respond_to :syndicates }
+  it { should respond_to :categories }
 
   it { should be_valid }
 
@@ -53,5 +54,10 @@ describe Board do
     it "includes the subdomain in the param" do
       subject.to_param.should =~ /#{subject.subdomain}/
     end
+  end
+
+  describe "when subdomain is duplicate" do
+    before { FactoryGirl.create :board, subdomain: subject.subdomain }
+    it { should_not be_valid }
   end
 end

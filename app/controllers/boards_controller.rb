@@ -2,7 +2,7 @@ class BoardsController < ApplicationController
   before_action :find_board, only: [:edit, :update, :destroy]
 
   def index
-    @boards = Board.all
+    @boards = Board.all.includes(:categories)
   end
 
   def new

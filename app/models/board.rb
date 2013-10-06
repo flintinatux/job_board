@@ -15,8 +15,9 @@
 class Board < ActiveRecord::Base
   include Parameterized
   parameterize_by :subdomain
+  has_many :categories
 
-  validates :subdomain, presence: true
+  validates :subdomain, presence: true, uniqueness: { case_sensitive: false }
   validates :title,     presence: true
   validates :tagline,   presence: true
 
