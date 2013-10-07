@@ -1,0 +1,4 @@
+.radio
+  %label
+    = radio_button :job, :category_id, category.id, checked: (category_counter == 0)
+    = category.name

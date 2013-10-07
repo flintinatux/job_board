@@ -14,7 +14,7 @@
   - selected = @board ? @board == board : board_counter == 0
   .panel-collapse.collapse{ id: board.to_param, class: (:in if selected) }
     .panel-body
-      = board.tagline
+      != $markdown.render board.tagline
     %ul.list-group
       = render board.categories
       %li.list-group-item
