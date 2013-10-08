@@ -2,7 +2,7 @@
 %html
   %head
     %title= full_title yield(:title)
-    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
+    -# %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
     = stylesheet_link_tag "application", media: "all", data: { 'turbolinks-track' => true }
     = javascript_include_tag "application", defer: :defer, data: { 'turbolinks-track' => true }
     = render 'layouts/fonts'
@@ -10,13 +10,13 @@
     = csrf_meta_tags
     = yield(:head) if content_for?(:head)
   %body
-    .row
-      #header.col-md-8.col-md-offset-2
-        = yield(:header) if content_for?(:header)
-    .row
-      #content.col-md-8.col-md-offset-2
-        #flash_messages
-          = render 'flash_messages'
-        = content_for?(:content) ? yield(:content) : yield
-    = render 'layouts/footer'
-    = render 'layouts/tracking' if Rails.env.production?
+    .container
+      .row
+        #header.col-xs-12
+          = yield(:header) if content_for?(:header)
+        #content.col-xs-12
+          #flash_messages
+            = render 'flash_messages'
+          = content_for?(:content) ? yield(:content) : yield
+      = render 'layouts/footer'
+      = render 'layouts/tracking' if Rails.env.production?

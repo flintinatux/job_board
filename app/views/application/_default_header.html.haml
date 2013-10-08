@@ -1,9 +1,9 @@
 .row
-  %h1.title.tk-goudy-bookletter-1911.col-md-6
+  %h1.title.tk-goudy-bookletter-1911.col-xs-6
     %icon{ class: board_icon }
     = link_to full_title, root_url
   - if signed_in? and not params[:preview]
-    %nav.col-md-6
+    %nav.col-xs-6
       = link_to signout_path, method: :delete, remote: :true, format: :js, class: 'btn btn-primary pull-right' do
         %icon.icon-off
         Sign out
@@ -11,5 +11,5 @@
         %icon.icon-th-large
         Boards
   - else
-    .col-md-6
+    .col-xs-6
       != $markdown.render @current_board.tagline if @current_board

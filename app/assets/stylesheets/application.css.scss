@@ -7,6 +7,11 @@
   }
 }
 
+.container {
+  max-width: none !important;
+  width: 860px;
+}
+
 .wf-active, .wf-inactive {
   .tk-goudy-bookletter-1911 {
     visibility: visible;
