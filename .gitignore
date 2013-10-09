@@ -22,3 +22,7 @@ doc/
 .project
 .DS_Store
 .idea
+
+# Ignore bower dependencies
+vendor/assets/bower_components
+lib/assets/bower_components

@@ -16,4 +16,9 @@ FactoryGirl.define do
     association :board
     sequence(:name) { |n| "Category #{n}" }
   end
+
+  factory :job do
+    association :category
+    sequence(:title) { |n| "Job #{n}" }
+  end
 end

@@ -7,8 +7,11 @@
   "vendor": {
     "name": "bower-rails generated vendor assets",
     "dependencies": {
-      "html5shiv": "~> 3.7.0",
-      "respond":   "https://github.com/scottjehl/Respond.git"
+      "backbone":   "~> 1.0.0",
+      "html5shiv":  "~> 3.7.0",
+      "json2":      "https://github.com/douglascrockford/JSON-js.git",
+      "respond":    "https://github.com/scottjehl/Respond.git",
+      "underscore": "~> 1.5.2"
     }
   }
 }

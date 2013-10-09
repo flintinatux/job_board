@@ -6,7 +6,8 @@ JobBoard::Application.routes.draw do
   resources :categories, only: [:show]
   resources :jobs do
     collection do
-      get :search
+      post :preview
+      get  :search
     end
   end
 
