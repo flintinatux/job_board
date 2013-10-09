@@ -1,4 +1,4 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
+// This is a manifest file that'll be compiled into new_job.js, which will include all the files
 // listed below.
 //
 // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
@@ -10,10 +10,13 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require html5shiv/dist/html5shiv
-//= require respond/respond.min
-//= require jquery
-//= require jquery_ujs
-//= require twitter/bootstrap
-//= require turbolinks
-//= require_tree ./application
+//= require json2/json2
+//= require underscore/underscore
+//= require backbone/backbone
+//= require hamlcoffee
+//= require_tree ./new_job/app
+//= require_tree ./new_job/models
+//= require_tree ./new_job/collections
+//= require_tree ./new_job/views
+//= require_tree ./new_job/routers
+//= require_tree ./templates/new_job

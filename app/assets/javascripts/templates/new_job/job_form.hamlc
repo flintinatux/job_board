@@ -1,0 +1,2 @@
+%p This is some haml.
+%p= @title

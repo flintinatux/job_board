@@ -1,4 +1,8 @@
 - provide :title, 'Post a job'
+
+- content_for :head do
+  = javascript_include_tag "new_job", defer: :defer, data: { 'turbolinks-track' => true }
+
 - content_for :header do
   = render 'post_a_job_header', step: 1
 
