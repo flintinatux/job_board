@@ -11,7 +11,9 @@
       .form-group
         %label.col-xs-2.control-label{ for: 'job_category_id' } Category
         .col-xs-10
-          / = f.select :category_id, options_from_collection_for_select(@current_board.categories, :id, :name, f.object.category_id), {}, class: 'form-control'
+          %select.form-control#job_category_id{ name: 'job[category_id]' }
+            - _.each (@current_board || CurrentBoard).categories, (category) ->
+              %option{ value: category.id }= category.name
       .form-group
         %label.col-xs-2.control-label{ for: 'job_location' } Location
         .col-xs-10
@@ -32,32 +34,32 @@
   .form-horizontal.row
     .col-xs-8
       .form-group
-  /       = f.label :company, 'Name', class: 'col-xs-2 control-label'
-  /       .col-xs-10
-  /         = f.text_field :company, placeholder: 'Enter your company or organization’s name.', class: 'form-control'
-  /         = render 'field_error_message', object: f.object, field: :company
-  /     .form-group
-  /       = f.label :url, 'URL', class: 'col-xs-2 control-label'
-  /       .col-xs-10
-  /         = f.text_field :url, placeholder: 'Example: http://www.google.com', class: 'form-control'
-  /         = render 'field_error_message', object: f.object, field: :url
-  /     .form-group
-  /       = f.label :email, 'Email', class: 'col-xs-2 control-label'
-  /       .col-xs-10
-  /         = f.text_field :email, placeholder: 'This is where we’ll send your receipt and confirmation email.', class: 'form-control'
-  /         = render 'field_error_message', object: f.object, field: :email
+        %label.col-xs-2.control-label{ for: 'job_company' } Name
+        .col-xs-10
+          %input.form-control#job_company{ name: 'job[company]', type: 'text', placeholder: 'Enter your company or organization’s name.', value: @job.company }
+          / = render 'field_error_message', object: f.object, field: :company
+      .form-group
+        %label.col-xs-2.control-label{ for: 'job_url' } URL
+        .col-xs-10
+          %input.form-control#job_url{ name: 'job[url]', type: 'text', placeholder: 'Example: http://www.google.com', value: @job.url }
+          / = render 'field_error_message', object: f.object, field: :url
+      .form-group
+        %label.col-xs-2.control-label{ for: 'job_email' } Email
+        .col-xs-10
+          %input.form-control#job_email{ name: 'job[email]', type: 'text', placeholder: 'This is where we’ll send your receipt and confirmation email.', value: @job.email }
+          / = render 'field_error_message', object: f.object, field: :email
 
-  / %h3.tk-goudy-bookletter-1911.text-info Help your ad stand out:
-  / .row
-  /   .col-xs-5
-  /     %p
-  /       For only
-  /       %strong $50 more
-  /       you can highlight your ad. Highlighted ads have a yellow background in the list so they stand out against the others.
-  /     .checkbox
-  /       %label
-  /         = f.check_box :highlight
-  /         %strong Yes, highlight my ad
-  /         for only $50.
+  %h3.tk-goudy-bookletter-1911.text-info Help your ad stand out:
+  .row
+    .col-xs-5
+      %p
+        For only
+        %strong $50 more
+        you can highlight your ad. Highlighted ads have a yellow background in the list so they stand out against the others.
+      .checkbox
+        %label
+          %input#job_highlight{ name: 'job[highlight]', type: 'checkbox', value: 1 }
+          %strong Yes, highlight my ad
+          for only $50.
 
-  / %button.btn.btn-success{ type: :submit, data: { disable_with: 'Continuing to Step 2...' } } Continue to Step 2 to preview your ad
+  %button.btn.btn-success{ type: 'submit', data: { disable_with: 'Continuing to Step 2...' } } Continue to Step 2 to preview your ad

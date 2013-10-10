@@ -3,7 +3,6 @@ class JobsController < ApplicationController
   end
 
   def new
-    @job = Job.new
   end
 
   def preview
@@ -11,6 +10,10 @@ class JobsController < ApplicationController
   end
 
   def search
+  end
+
+  def old_new
+    @job = Job.new
   end
 
   private

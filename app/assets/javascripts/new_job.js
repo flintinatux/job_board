@@ -20,4 +20,4 @@
 //= require_tree ./new_job/models
 //= require_tree ./new_job/collections
 //= require_tree ./new_job/views
-//= require_tree ./new_job/routers
+//= require_tree ./new_job/app

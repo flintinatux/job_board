@@ -8,6 +8,7 @@ JobBoard::Application.routes.draw do
     collection do
       post :preview
       get  :search
+      get  :old_new
     end
   end
 

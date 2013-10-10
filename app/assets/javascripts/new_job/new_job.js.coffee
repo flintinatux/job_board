@@ -30,19 +30,12 @@ Backbone.Router     = Backbone.Router.extend      ObjectMethods, ClassMethods
   Models:       {}
   Collections:  {}
   Views:        {}
-  Routers:      {}
 
   initialize: ->
     @$el = $('#jobs')
     @job = new NewJob.Models.Job()
-    @swap new NewJob.Views.Create model: @job
-
-  swap: (newView) ->
-    @currentView.remove() if @currentView
-    @currentView = newView
-    @$el.html @currentView.render().el
-    @currentView.swapped()
-    this
+    new NewJob.Router()
+    Backbone.history.start pushState: true, root: '/jobs/new'
 
 $(document).on 'ready page:change', ->
   NewJob.initialize()
