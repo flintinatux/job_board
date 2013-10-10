@@ -14,9 +14,10 @@
 //= require underscore/underscore
 //= require backbone/backbone
 //= require hamlcoffee
-//= require_tree ./new_job/app
+//= require new_job/new_job
+//= require_tree ./templates/jobs
+//= require_tree ./new_job/support
 //= require_tree ./new_job/models
 //= require_tree ./new_job/collections
 //= require_tree ./new_job/views
 //= require_tree ./new_job/routers
-//= require_tree ./templates/new_job

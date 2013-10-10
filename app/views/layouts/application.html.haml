@@ -13,9 +13,10 @@
       .row
         #header.col-xs-12
           = yield(:header) if content_for?(:header)
-        #content.col-xs-12
+        #page.col-xs-12
           #flash_messages
             = render 'flash_messages'
-          = content_for?(:content) ? yield(:content) : yield
+          #content
+            = content_for?(:content) ? yield(:content) : yield
       = render 'layouts/footer'
       = render 'layouts/tracking' if Rails.env.production?

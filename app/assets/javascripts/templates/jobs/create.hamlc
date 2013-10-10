@@ -1,0 +1,63 @@
+%h1.tk-goudy-bookletter-1911 Step 1: Create your ad
+%form
+  %h3.tk-goudy-bookletter-1911.text-info First, tell us about the position:
+  .form-horizontal.row
+    .col-xs-8
+      .form-group
+        %label.col-xs-2.control-label{ for: 'job_title' } Job title
+        .col-xs-10
+          %input.form-control#job_title{ name: 'job[title]', type: 'text', placeholder: '"RN Med Surg" or "Emergency Medical Technician"', value: @job.title }
+          / = render 'field_error_message', object: f.object, field: :title
+      .form-group
+        %label.col-xs-2.control-label{ for: 'job_category_id' } Category
+        .col-xs-10
+          / = f.select :category_id, options_from_collection_for_select(@current_board.categories, :id, :name, f.object.category_id), {}, class: 'form-control'
+      .form-group
+        %label.col-xs-2.control-label{ for: 'job_location' } Location
+        .col-xs-10
+          %input.form-control#job_location{ name: 'job[location]', type: 'text', placeholder: '"Atlanta, GA", "London, England", or "Anywhere"', value: @job.location }
+          / = render 'field_error_message', object: f.object, field: :location
+  .form-group.row
+    %label.col-xs-8.control-label{ for: 'job_description' } Job description
+    .col-xs-8
+      %textarea.form-control#job_description{ name: 'job[description]', value: @job.description, rows: 10 }
+      / = render 'field_error_message', object: f.object, field: :description
+  .form-group.row
+    %label.col-xs-8.control-label{ for: 'job_instructions' } How do people apply for this job?
+    .col-xs-8
+      %textarea.form-control#job_description{ name: 'job[description]', value: @job.instructions, rows: 3, placeholder: 'Example: Send a resume to janet@company-name.com' }
+      / = render 'field_error_message', object: f.object, field: :instructions
+
+  %h3.tk-goudy-bookletter-1911.text-info Tell us about your company:
+  .form-horizontal.row
+    .col-xs-8
+      .form-group
+  /       = f.label :company, 'Name', class: 'col-xs-2 control-label'
+  /       .col-xs-10
+  /         = f.text_field :company, placeholder: 'Enter your company or organization’s name.', class: 'form-control'
+  /         = render 'field_error_message', object: f.object, field: :company
+  /     .form-group
+  /       = f.label :url, 'URL', class: 'col-xs-2 control-label'
+  /       .col-xs-10
+  /         = f.text_field :url, placeholder: 'Example: http://www.google.com', class: 'form-control'
+  /         = render 'field_error_message', object: f.object, field: :url
+  /     .form-group
+  /       = f.label :email, 'Email', class: 'col-xs-2 control-label'
+  /       .col-xs-10
+  /         = f.text_field :email, placeholder: 'This is where we’ll send your receipt and confirmation email.', class: 'form-control'
+  /         = render 'field_error_message', object: f.object, field: :email
+
+  / %h3.tk-goudy-bookletter-1911.text-info Help your ad stand out:
+  / .row
+  /   .col-xs-5
+  /     %p
+  /       For only
+  /       %strong $50 more
+  /       you can highlight your ad. Highlighted ads have a yellow background in the list so they stand out against the others.
+  /     .checkbox
+  /       %label
+  /         = f.check_box :highlight
+  /         %strong Yes, highlight my ad
+  /         for only $50.
+
+  / %button.btn.btn-success{ type: :submit, data: { disable_with: 'Continuing to Step 2...' } } Continue to Step 2 to preview your ad

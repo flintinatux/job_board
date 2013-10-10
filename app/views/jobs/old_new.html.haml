@@ -1,0 +1,76 @@
+- provide :title, 'Post a job'
+
+- content_for :head do
+  = javascript_include_tag "new_job", defer: :defer, data: { 'turbolinks-track' => true }
+
+- content_for :header do
+  = render 'post_a_job_header', step: 1
+
+-#= render 'content_header', title: 'Step 1: Create your ad'
+
+#jobs
+  #job_form
+    %h1.tk-goudy-bookletter-1911 Step 1: Create your ad
+    = form_for @job, remote: true, format: :js do |f|
+
+      %h3.tk-goudy-bookletter-1911.text-info First, tell us about the position:
+      .form-horizontal.row
+        .col-xs-8
+          .form-group
+            = f.label :title, 'Job title', class: 'col-xs-2 control-label'
+            .col-xs-10
+              = f.text_field :title, placeholder: '"RN Med Surg" or "Emergency Medical Technician"', class: 'form-control'
+              = render 'field_error_message', object: f.object, field: :title
+          .form-group
+            = f.label :category_id, 'Category', class: 'col-xs-2 control-label'
+            .col-xs-10
+              = f.select :category_id, options_from_collection_for_select(@current_board.categories, :id, :name, f.object.category_id), {}, class: 'form-control'
+          .form-group
+            = f.label :location, class: 'col-xs-2 control-label'
+            .col-xs-10
+              = f.text_field :location, placeholder: '"Atlanta, GA", "London, England", or "Anywhere"', class: 'form-control'
+              = render 'field_error_message', object: f.object, field: :location
+      .form-group.row
+        = f.label :description, 'Job description', class: 'col-xs-8 control-label'
+        .col-xs-8
+          = f.text_area :description, class: 'form-control', rows: 10
+          = render 'field_error_message', object: f.object, field: :description
+      .form-group.row
+        = f.label :instructions, 'How do people apply for this job?', class: 'col-xs-8 control-label'
+        .col-xs-8
+          = f.text_area :instructions, class: 'form-control', rows: 3, placeholder: 'Example: Send a resume to janet@company-name.com'
+          = render 'field_error_message', object: f.object, field: :instructions
+
+      %h3.tk-goudy-bookletter-1911.text-info Tell us about your company:
+      .form-horizontal.row
+        .col-xs-8
+          .form-group
+            = f.label :company, 'Name', class: 'col-xs-2 control-label'
+            .col-xs-10
+              = f.text_field :company, placeholder: 'Enter your company or organization’s name.', class: 'form-control'
+              = render 'field_error_message', object: f.object, field: :company
+          .form-group
+            = f.label :url, 'URL', class: 'col-xs-2 control-label'
+            .col-xs-10
+              = f.text_field :url, placeholder: 'Example: http://www.google.com', class: 'form-control'
+              = render 'field_error_message', object: f.object, field: :url
+          .form-group
+            = f.label :email, 'Email', class: 'col-xs-2 control-label'
+            .col-xs-10
+              = f.text_field :email, placeholder: 'This is where we’ll send your receipt and confirmation email.', class: 'form-control'
+              = render 'field_error_message', object: f.object, field: :email
+
+      %h3.tk-goudy-bookletter-1911.text-info Help your ad stand out:
+      .row
+        .col-xs-5
+          %p
+            For only
+            %strong $50 more
+            you can highlight your ad. Highlighted ads have a yellow background in the list so they stand out against the others.
+          .checkbox
+            %label
+              = f.check_box :highlight
+              %strong Yes, highlight my ad
+              for only $50.
+
+      %button.btn.btn-success{ type: :submit, data: { disable_with: 'Continuing to Step 2...' } } Continue to Step 2 to preview your ad
