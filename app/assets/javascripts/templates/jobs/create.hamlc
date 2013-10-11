@@ -4,49 +4,47 @@
   .form-horizontal.row
     .col-xs-8
       .form-group
-        %label.col-xs-2.control-label{ for: 'job_title' } Job title
+        %label.col-xs-2.control-label{ for: 'title' } Job title
         .col-xs-10
-          %input.form-control#job_title{ name: 'job[title]', type: 'text', placeholder: '"RN Med Surg" or "Emergency Medical Technician"', value: @job.title }
+          %input.form-control#title{ name: 'title', type: 'text', placeholder: '"RN Med Surg" or "Emergency Medical Technician"', value: @job.title }
           / = render 'field_error_message', object: f.object, field: :title
       .form-group
-        %label.col-xs-2.control-label{ for: 'job_category_id' } Category
+        %label.col-xs-2.control-label{ for: 'category_id' } Category
         .col-xs-10
-          %select.form-control#job_category_id{ name: 'job[category_id]' }
-            - _.each (@current_board || CurrentBoard).categories, (category) ->
-              %option{ value: category.id }= category.name
+          %select.form-control#category_id{ name: 'category_id' }
       .form-group
-        %label.col-xs-2.control-label{ for: 'job_location' } Location
+        %label.col-xs-2.control-label{ for: 'location' } Location
         .col-xs-10
-          %input.form-control#job_location{ name: 'job[location]', type: 'text', placeholder: '"Atlanta, GA", "London, England", or "Anywhere"', value: @job.location }
+          %input.form-control#location{ name: 'location', type: 'text', placeholder: '"Atlanta, GA", "London, England", or "Anywhere"', value: @job.location }
           / = render 'field_error_message', object: f.object, field: :location
   .form-group.row
-    %label.col-xs-8.control-label{ for: 'job_description' } Job description
+    %label.col-xs-8.control-label{ for: 'description' } Job description
     .col-xs-8
-      %textarea.form-control#job_description{ name: 'job[description]', value: @job.description, rows: 10 }
+      %textarea.form-control#description{ name: 'description', value: @job.description, rows: 10 }
       / = render 'field_error_message', object: f.object, field: :description
   .form-group.row
-    %label.col-xs-8.control-label{ for: 'job_instructions' } How do people apply for this job?
+    %label.col-xs-8.control-label{ for: 'instructions' } How do people apply for this job?
     .col-xs-8
-      %textarea.form-control#job_description{ name: 'job[description]', value: @job.instructions, rows: 3, placeholder: 'Example: Send a resume to janet@company-name.com' }
+      %textarea.form-control#instructions{ name: 'instructions', value: @job.instructions, rows: 3, placeholder: 'Example: Send a resume to janet@company-name.com' }
       / = render 'field_error_message', object: f.object, field: :instructions
 
   %h3.tk-goudy-bookletter-1911.text-info Tell us about your company:
   .form-horizontal.row
     .col-xs-8
       .form-group
-        %label.col-xs-2.control-label{ for: 'job_company' } Name
+        %label.col-xs-2.control-label{ for: 'company' } Name
         .col-xs-10
-          %input.form-control#job_company{ name: 'job[company]', type: 'text', placeholder: 'Enter your company or organization’s name.', value: @job.company }
+          %input.form-control#company{ name: 'company', type: 'text', placeholder: 'Enter your company or organization’s name.', value: @job.company }
           / = render 'field_error_message', object: f.object, field: :company
       .form-group
-        %label.col-xs-2.control-label{ for: 'job_url' } URL
+        %label.col-xs-2.control-label{ for: 'url' } URL
         .col-xs-10
-          %input.form-control#job_url{ name: 'job[url]', type: 'text', placeholder: 'Example: http://www.google.com', value: @job.url }
+          %input.form-control#url{ name: 'url', type: 'text', placeholder: 'Example: http://www.google.com', value: @job.url }
           / = render 'field_error_message', object: f.object, field: :url
       .form-group
-        %label.col-xs-2.control-label{ for: 'job_email' } Email
+        %label.col-xs-2.control-label{ for: 'email' } Email
         .col-xs-10
-          %input.form-control#job_email{ name: 'job[email]', type: 'text', placeholder: 'This is where we’ll send your receipt and confirmation email.', value: @job.email }
+          %input.form-control#email{ name: 'email', type: 'text', placeholder: 'This is where we’ll send your receipt and confirmation email.', value: @job.email }
           / = render 'field_error_message', object: f.object, field: :email
 
   %h3.tk-goudy-bookletter-1911.text-info Help your ad stand out:
@@ -58,7 +56,7 @@
         you can highlight your ad. Highlighted ads have a yellow background in the list so they stand out against the others.
       .checkbox
         %label
-          %input#job_highlight{ name: 'job[highlight]', type: 'checkbox', value: 1 }
+          %input#highlight{ name: 'highlight', type: 'checkbox', value: 1 }
           %strong Yes, highlight my ad
           for only $50.
 

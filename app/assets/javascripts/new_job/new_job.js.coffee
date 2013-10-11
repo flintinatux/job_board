@@ -25,6 +25,26 @@ Backbone.Collection = Backbone.Collection.extend  ObjectMethods, ClassMethods
 Backbone.View       = Backbone.View.extend        ObjectMethods, ClassMethods
 Backbone.Router     = Backbone.Router.extend      ObjectMethods, ClassMethods
 
+## Add custom validation callbacks for Bootstrap.
+#  (per https://github.com/thedersen/backbone.validation#callbacks)
+
+_.extend Backbone.Validation.callbacks,
+  elem: (view, attr) ->
+    view.$("[name=#{attr}]")
+
+  text: (view, attr) ->
+    view.$("[name=#{attr}] ~ p.text-danger")
+
+  valid: (view, attr, selector) ->
+    @elem(view, attr).closest('.form-group').removeClass 'has-error'
+    @text(view, attr).remove()
+
+  invalid: (view, attr, error, selector) ->
+    @elem(view, attr).closest('.form-group').addClass 'has-error'
+    @elem(view, attr).after("<p class='text-danger'>#{error}</p>") unless @text(view, attr).length > 0
+
+## Now get ready!
+
 @NewJob =
   Concerns:     {}
   Models:       {}
@@ -34,7 +54,7 @@ Backbone.Router     = Backbone.Router.extend      ObjectMethods, ClassMethods
   initialize: ->
     @$el = $('#jobs')
     @job = new NewJob.Models.Job()
-    new NewJob.Router()
+    @router = new NewJob.Router()
     Backbone.history.start pushState: true, root: '/jobs/new'
 
 $(document).on 'ready page:change', ->

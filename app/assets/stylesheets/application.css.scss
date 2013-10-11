@@ -1,21 +1,21 @@
 @import "twitter/bootstrap";
 @import "font-awesome";
 
-.wf-loading {
-  .tk-goudy-bookletter-1911 {
-    visibility: hidden;
-  }
-}
+// .wf-loading {
+//   .tk-goudy-bookletter-1911 {
+//     visibility: hidden;
+//   }
+// }
+
+// .wf-active, .wf-inactive {
+//   .tk-goudy-bookletter-1911 {
+//     visibility: visible;
+//   }
+// }
 
 .container {
   max-width: none !important;
   width: 860px;
-}
-
-.wf-active, .wf-inactive {
-  .tk-goudy-bookletter-1911 {
-    visibility: visible;
-  }
 }
 
 .center {
