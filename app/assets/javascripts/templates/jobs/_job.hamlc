@@ -1,0 +1,15 @@
+#job
+  .job-header
+    %h1.title.tk-goudy-bookletter-1911= @job.title
+    %p.created_at.text-muted Posted Oct 11
+    %p.company= @job.company
+    %p.location= @job.location
+    - if @job.url
+      %p.url
+        %a{ href: @job.url }= @job.url
+  .row
+    .job-description.col-xs-8
+      != @job.description
+  .job-instructions.well.col-xs-12
+    %p.heading Apply for this position:
+    != marked @job.instructions, gfm: true

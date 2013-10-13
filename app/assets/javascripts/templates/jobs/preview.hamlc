@@ -1,0 +1,11 @@
+.content-header
+  != JST['jobs/preview_buttons']()
+  %h1.tk-goudy-bookletter-1911
+    Step 2: Preview your ad
+    %icon.icon-hand-down
+
+!= JST['jobs/job'](job: @job)
+
+.content-header
+  != JST['jobs/preview_buttons']()
+.clearfix

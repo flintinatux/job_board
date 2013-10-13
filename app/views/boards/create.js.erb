@@ -1,5 +1,5 @@
 <% if @board.valid? %>
-  Turbolinks.visit("<%= j url_for(@board) %>")
+  window.location = "<%= j url_for(@board) %>";
 <% else %>
-  $('#board_form').html("<%= j render('board_form', title: 'New board') %>")
+  $('#board_form').html("<%= j render('board_form', title: 'New board') %>");
 <% end %>

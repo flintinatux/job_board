@@ -1,0 +1,4 @@
+%nav
+  %span.make_changes Make changes
+  %span or
+  %button.btn.btn-success.continue Looks great! Continue to Step 3

@@ -6,11 +6,12 @@ JobBoard::Application.routes.draw do
   resources :categories, only: [:show]
   resources :jobs do
     collection do
-      post :preview
       get  :search
       get  :old_new
     end
   end
+
+  get '/jobs/new/preview', to: 'jobs#new'
 
   get    '/signin',  to: 'sessions#new'
   delete '/signout', to: 'sessions#destroy'

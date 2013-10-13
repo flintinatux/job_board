@@ -52,10 +52,17 @@ _.extend Backbone.Validation.callbacks,
   Views:        {}
 
   initialize: ->
-    @$el = $('#jobs')
-    @job = new NewJob.Models.Job()
-    @router = new NewJob.Router()
+    # return if @started
+    @flash    = new NewJob.Models.Flash()
+    @job      = new NewJob.Models.Job()
+    @progress = new NewJob.Models.Progress()
+    @router   = new NewJob.Router()
+
+    new NewJob.Views.Flash el: $('#flash_messages')
+    new NewJob.Views.Progress el: $('#header')
+
     Backbone.history.start pushState: true, root: '/jobs/new'
+    # @started = true
 
 $(document).on 'ready page:change', ->
   NewJob.initialize()

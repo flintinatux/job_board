@@ -3,6 +3,6 @@
     %icon{ class: board_icon }
     = link_to full_title, root_url
   %nav.col-xs-6.text-right
-    %button.btn{ class: primary_if(step == 1), disabled: true } 1. Create
-    %button.btn{ class: primary_if(step == 2), disabled: true } 2. Preview
-    %button.btn{ class: primary_if(step == 3), disabled: true } 3. Purchase
+    %button.btn.create{ class: primary_if(step == 1), disabled: true } 1. Create
+    %button.btn.preview{ class: primary_if(step == 2), disabled: true } 2. Preview
+    %button.btn.purchase{ class: primary_if(step == 3), disabled: true } 3. Purchase

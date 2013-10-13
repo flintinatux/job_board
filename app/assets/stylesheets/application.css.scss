@@ -76,7 +76,6 @@ body {
 
   #page {
     padding-top: 15px;
-    overflow: hidden;
     background: #fff;
     box-shadow: 3px 3px 3px #ccc;
     -moz-box-shadow: 3px 3px 3px #ccc;
@@ -84,19 +83,28 @@ body {
     border-top: 1px solid #e8e8e8;
     border-left: 1px solid #e8e8e8;
 
-    .content-header {
-      h1 {
-        margin: 0 0 15px 0;
-        padding-bottom: 8px;
-        border-bottom: 1px solid #eeeeee;
-      }
+    #content {
+      padding-bottom: 10px;
 
-      nav {
-        float: right;
+      .content-header {
+        h1 {
+          margin: 0 0 15px 0;
+          padding-bottom: 8px;
+          border-bottom: 1px solid #eeeeee;
+        }
 
-        a, button {
-          float: left;
-          margin-left: 15px;
+        nav {
+          float: right;
+
+          a, button, span {
+            float: left;
+            margin-left: 15px;
+            margin-bottom: 15px;
+          }
+
+          span {
+            padding-top: 6px;
+          }
         }
       }
     }

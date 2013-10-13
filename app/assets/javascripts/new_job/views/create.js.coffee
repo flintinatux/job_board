@@ -21,6 +21,10 @@ class NewJob.Views.Create extends NewJob.CompositeView
   events:
     'submit form': 'submit'
 
+  remove: ->
+    Backbone.Validation.unbind this
+    super()
+
   render: ->
     @$el.html @template(job: @model.attributes)
     @stickit()
@@ -30,4 +34,8 @@ class NewJob.Views.Create extends NewJob.CompositeView
   submit: (event) ->
     event.stopPropagation()
     event.preventDefault()
-    @model.validate()
+    unless @model.validate()
+      NewJob.router.navigate 'preview', trigger: true
+    else
+      NewJob.flash.danger "Please fix the errors below before continuing."
+      $(document).scrollTop 0

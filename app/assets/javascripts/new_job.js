@@ -15,6 +15,7 @@
 //= require backbone/backbone
 //= require backbone.stickit/backbone.stickit
 //= require backbone-validation/src/backbone-validation
+//= require marked/lib/marked
 //= require hamlcoffee
 //= require new_job/new_job
 //= require_tree ./templates/jobs
