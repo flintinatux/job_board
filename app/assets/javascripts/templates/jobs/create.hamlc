@@ -21,8 +21,7 @@
       .form-group
         %label.col-xs-2.control-label{ for: 'title' } Job title
         .col-xs-10
-          %input.form-control#title{ name: 'title', type: 'text', placeholder: '"RN Med Surg" or "Emergency Medical Technician"', value: @job.title }
-          / = render 'field_error_message', object: f.object, field: :title
+          %input.form-control#title{ name: 'title', type: 'text', placeholder: '"RN Med Surg" or "Emergency Medical Technician"' }
       .form-group
         %label.col-xs-2.control-label{ for: 'category_id' } Category
         .col-xs-10
@@ -30,18 +29,15 @@
       .form-group
         %label.col-xs-2.control-label{ for: 'location' } Location
         .col-xs-10
-          %input.form-control#location{ name: 'location', type: 'text', placeholder: '"Atlanta, GA", "London, England", or "Anywhere"', value: @job.location }
-          / = render 'field_error_message', object: f.object, field: :location
+          %input.form-control#location{ name: 'location', type: 'text', placeholder: '"Atlanta, GA", "London, England", or "Anywhere"' }
   .form-group.row
     %label.col-xs-8.control-label{ for: 'description' } Job description
     .col-xs-8
-      %textarea.form-control#description{ name: 'description', value: @job.description, rows: 10 }
-      / = render 'field_error_message', object: f.object, field: :description
+      %textarea.form-control#description{ name: 'description', rows: 16 }
   .form-group.row
     %label.col-xs-8.control-label{ for: 'instructions' } How do people apply for this job?
     .col-xs-8
-      %textarea.form-control#instructions{ name: 'instructions', value: @job.instructions, rows: 3, placeholder: 'Example: Send a resume to janet@company-name.com' }
-      / = render 'field_error_message', object: f.object, field: :instructions
+      %textarea.form-control#instructions{ name: 'instructions', rows: 3, placeholder: 'Example: Send a resume to janet@company-name.com' }
 
   %h3.tk-goudy-bookletter-1911.text-info Tell us about your company:
   .form-horizontal.row
@@ -49,18 +45,15 @@
       .form-group
         %label.col-xs-2.control-label{ for: 'company' } Name
         .col-xs-10
-          %input.form-control#company{ name: 'company', type: 'text', placeholder: 'Enter your company or organization’s name.', value: @job.company }
-          / = render 'field_error_message', object: f.object, field: :company
+          %input.form-control#company{ name: 'company', type: 'text', placeholder: 'Enter your company or organization’s name.' }
       .form-group
         %label.col-xs-2.control-label{ for: 'url' } URL
         .col-xs-10
-          %input.form-control#url{ name: 'url', type: 'text', placeholder: 'Example: http://www.google.com', value: @job.url }
-          / = render 'field_error_message', object: f.object, field: :url
+          %input.form-control#url{ name: 'url', type: 'text', placeholder: 'Example: http://www.google.com' }
       .form-group
         %label.col-xs-2.control-label{ for: 'email' } Email
         .col-xs-10
-          %input.form-control#email{ name: 'email', type: 'text', placeholder: 'This is where we’ll send your receipt and confirmation email.', value: @job.email }
-          / = render 'field_error_message', object: f.object, field: :email
+          %input.form-control#email{ name: 'email', type: 'text', placeholder: 'This is where we’ll send your receipt and confirmation email.' }
 
   %h3.tk-goudy-bookletter-1911.text-info Help your ad stand out:
   .row

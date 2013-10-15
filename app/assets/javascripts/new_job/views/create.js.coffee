@@ -26,7 +26,7 @@ class NewJob.Views.Create extends NewJob.CompositeView
     super()
 
   render: ->
-    @$el.html @template(job: @model.attributes)
+    @$el.html @template()
     @stickit()
     Backbone.Validation.bind this
     this

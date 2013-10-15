@@ -25,23 +25,23 @@ Backbone.Collection = Backbone.Collection.extend  ObjectMethods, ClassMethods
 Backbone.View       = Backbone.View.extend        ObjectMethods, ClassMethods
 Backbone.Router     = Backbone.Router.extend      ObjectMethods, ClassMethods
 
-## Add custom validation callbacks for Bootstrap.
+## Custom validation callbacks for Bootstrap.
 #  (per https://github.com/thedersen/backbone.validation#callbacks)
 
 _.extend Backbone.Validation.callbacks,
-  elem: (view, attr) ->
+  field: (view, attr) ->
     view.$("[name=#{attr}]")
 
-  text: (view, attr) ->
+  helpText: (view, attr) ->
     view.$("[name=#{attr}] ~ p.text-danger")
 
   valid: (view, attr, selector) ->
-    @elem(view, attr).closest('.form-group').removeClass 'has-error'
-    @text(view, attr).remove()
+    @field(view, attr).closest('.form-group').removeClass 'has-error'
+    @helpText(view, attr).remove()
 
   invalid: (view, attr, error, selector) ->
-    @elem(view, attr).closest('.form-group').addClass 'has-error'
-    @elem(view, attr).after("<p class='text-danger'>#{error}</p>") unless @text(view, attr).length > 0
+    @field(view, attr).closest('.form-group').addClass 'has-error'
+    @field(view, attr).after("<p class='text-danger'>#{error}</p>") unless @helpText(view, attr).length > 0
 
 ## Now get ready!
 
@@ -52,7 +52,6 @@ _.extend Backbone.Validation.callbacks,
   Views:        {}
 
   initialize: ->
-    # return if @started
     @flash    = new NewJob.Models.Flash()
     @job      = new NewJob.Models.Job()
     @progress = new NewJob.Models.Progress()
@@ -62,7 +61,6 @@ _.extend Backbone.Validation.callbacks,
     new NewJob.Views.Progress el: $('#header')
 
     Backbone.history.start pushState: true, root: '/jobs/new'
-    # @started = true
 
-$(document).on 'ready page:change', ->
+$(document).ready ->
   NewJob.initialize()

@@ -2,8 +2,7 @@
 
 - content_for :head do
   :coffee
-    window.CurrentBoard =
-      categories: #{ @current_board.categories.to_json }
+    window.CurrentBoard = categories: #{ @current_board.categories.to_json }
   = javascript_include_tag "new_job", defer: :defer
 
 - content_for :header do

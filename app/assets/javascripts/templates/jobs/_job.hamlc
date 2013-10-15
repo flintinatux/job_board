@@ -9,7 +9,7 @@
         %a{ href: @job.url }= @job.url
   .row
     .job-description.col-xs-8
-      != @job.description
+      != marked @job.description
   .job-instructions.well.col-xs-12
     %p.heading Apply for this position:
-    != marked @job.instructions, gfm: true
+    != marked @job.instructions
