@@ -11,9 +11,9 @@
   %body
     .container
       .row
-        #header.col-xs-12
+        #header.col-sm-12
           = yield(:header) if content_for?(:header)
-        #page.col-xs-12
+        #page.col-sm-12
           #flash_messages
             = render 'flash_messages'
           #content

@@ -8,14 +8,14 @@
       %p.url
         %a{ href: @job.url }= @job.url
   .row
-    .job-description.col-xs-8
+    .job-description.col-sm-8
       != marked @job.description
-    .job-share.col-xs-4
+    .job-share.col-sm-4
       - if @preview
         %p.text-muted.text-center.preview-icons
           %icon.icon-envelope-alt
           %icon.icon-twitter
         %p.text-muted Tools to share this job listing via email and Twitter will appear here when your listing is published.
-  .job-instructions.well.col-xs-12
+  .job-instructions.well.col-sm-12
     %p.heading Apply for this position:
     != marked @job.instructions

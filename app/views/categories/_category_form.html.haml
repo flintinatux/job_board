@@ -8,7 +8,7 @@
       Cancel
   = render 'form_error_message', object: f.object
   .row
-    .form-group.col-xs-6.col-xs-offset-3
+    .form-group.col-sm-6.col-sm-offset-3
       = f.label :name, class: 'control-label'
       = f.text_field :name, class: 'form-control', placeholder: "Use 'nursing' instead of 'nursing jobs'.", autofocus: true
       = render 'field_error_message', object: f.object, field: :name

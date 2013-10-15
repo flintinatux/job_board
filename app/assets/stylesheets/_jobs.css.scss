@@ -85,6 +85,29 @@
         margin: 0 0 5px 0;
       }
     }
+
+    .modal#markdown {
+      .modal-body {
+        padding: 0 20px;
+
+        p.more-details {
+          padding-top: 10px;
+        }
+
+        .row {
+          border-bottom: 1px solid #eeeeee;
+          padding-top: 10px;
+
+          ul, ol {
+            padding-left: 20px;
+          }
+        }
+      }
+
+      .modal-footer {
+        margin-top: 10px;
+      }
+    }
   }
 
   #job {

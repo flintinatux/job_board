@@ -4,13 +4,13 @@
 #jobs
   %nav.row
     = form_tag search_jobs_path, method: :get do
-      .input-group.col-xs-5
+      .input-group.col-sm-5
         %span.input-group-addon
           %icon.icon-search
         = text_field_tag :term, nil, class: 'form-control', placeholder: "Search: 'atlanta', 'full time', 'design'..."
-    .col-xs-4.col-xs-offset-3
+    .col-sm-4.col-sm-offset-3
       = link_to 'Post a job: $400 for 30 days', new_job_path, class: 'post_job btn btn-success btn-block'
 
   #list.row
-    .category.col-xs-12
+    .category.col-sm-12
       %h3.tk-goudy-bookletter-1911 Nursing Jobs
