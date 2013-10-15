@@ -10,6 +10,12 @@
   .row
     .job-description.col-xs-8
       != marked @job.description
+    .job-share.col-xs-4
+      - if @preview
+        %p.text-muted.text-center.preview-icons
+          %icon.icon-envelope-alt
+          %icon.icon-twitter
+        %p.text-muted Tools to share this job listing via email and Twitter will appear here when your listing is published.
   .job-instructions.well.col-xs-12
     %p.heading Apply for this position:
     != marked @job.instructions

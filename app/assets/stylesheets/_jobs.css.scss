@@ -80,6 +80,10 @@
       label {
         text-align: left;
       }
+
+      p.help {
+        margin: 0 0 5px 0;
+      }
     }
   }
 
@@ -98,14 +102,14 @@
       }
 
       p {
-        &.created_at {
-          margin: 0 0 20px 0;
-        }
-
         &.company {
           margin: 0;
           font-weight: bold;
           font-size: 16px;
+        }
+        &.crea
+        ted_at {
+          margin: 0 0 20px 0;
         }
 
         &.location {
@@ -139,6 +143,14 @@
 
       *:last-child {
         margin-bottom: 0;
+      }
+    }
+
+    .job-share {
+      p {
+        &.preview-icons {
+          font-size: 22px;
+        }
       }
     }
   }
