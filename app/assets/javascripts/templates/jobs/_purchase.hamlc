@@ -1,0 +1,10 @@
+.content-header
+  %h1.tk-goudy-bookletter-1911 Step 3: Purchase your ad
+
+%p A purchase form or something...
+
+.well
+  %h3 Your ad is $400 and it will run for 30 days starting right now.
+  %p
+    You are only permitted to post one job opening per ad (you cannot say “We have 4 open positions...”). This charge is non refundable. JobBoard.com reserves the right to deny or remove job posts at our discretion (we will refund your money if we don’t run your ad). If you have questions please send a message to support:
+    %a{ href: '/' }

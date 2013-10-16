@@ -15,14 +15,17 @@ class NewJob.Router extends Backbone.Router
   create: ->
     @cleanPage()
     NewJob.progress.set step: 'create'
-    @swap new NewJob.Views.Create model: NewJob.job
+    @swap new NewJob.Views.Create()
 
   preview: ->
     @cleanPage()
     NewJob.progress.set step: 'preview'
-    @swap new NewJob.Views.Preview model: NewJob.job
+    @swap new NewJob.Views.Preview()
 
   purchase: ->
+    @cleanPage()
+    NewJob.progress.set step: 'purchase'
+    @swap new NewJob.Views.Purchase()
 
   swap: (newView) ->
     @currentView?.remove()

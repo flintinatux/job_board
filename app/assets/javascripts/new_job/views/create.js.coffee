@@ -2,6 +2,10 @@ class NewJob.Views.Create extends NewJob.CompositeView
   template: JST['jobs/create']
   id: 'create'
 
+  initialize: (options) ->
+    super(options)
+    @model = NewJob.job
+
   bindings:
     '#title':         'title'
     '#category_id':
