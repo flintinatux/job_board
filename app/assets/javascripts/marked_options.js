@@ -1,5 +1,5 @@
 marked.setOptions({
-  gfm: false,
+  gfm: true,
   // highlight: function (code, lang, callback) {
   //   pygmentize({ lang: lang, format: 'html' }, code, function (err, result) {
   //     if (err) return callback(err);
@@ -7,7 +7,7 @@ marked.setOptions({
   //   });
   // },
   tables: false,
-  breaks: false,
+  breaks: true,
   pedantic: false,
   sanitize: true,
   smartLists: true,

@@ -6,6 +6,8 @@ class CreateBoards < ActiveRecord::Migration
       t.string :tagline
       t.string :icon
       t.string :syndicates, array: true, default: '{}'
+      t.string :suggestions
+      t.text   :benefits
 
       t.timestamps
     end

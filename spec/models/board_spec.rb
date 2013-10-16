@@ -2,24 +2,28 @@
 #
 # Table name: boards
 #
-#  id         :integer          not null, primary key
-#  subdomain  :string(255)
-#  title      :string(255)
-#  tagline    :string(255)
-#  icon       :string(255)
-#  syndicates :string(255)      default([])
-#  created_at :datetime
-#  updated_at :datetime
+#  id          :integer          not null, primary key
+#  subdomain   :string(255)
+#  title       :string(255)
+#  tagline     :string(255)
+#  icon        :string(255)
+#  syndicates  :string(255)      default([])
+#  suggestions :string(255)
+#  benefits    :text
+#  created_at  :datetime
+#  updated_at  :datetime
 #
 
 require 'spec_helper'
 
 describe Board do
   before do
-    @board = Board.new  subdomain: 'medical',
-                        title:     'Medical Jobs',
-                        tagline:   'Post your medical jobs here!',
-                        icon:      'icon-user-md'
+    @board = Board.new  subdomain:    'medical',
+                        title:        'Medical Jobs',
+                        tagline:      'Post your medical jobs here!',
+                        icon:         'icon-user-md',
+                        suggestions:  '"Nurse technician" or "Shot giver"',
+                        benefits:     "**You want to post a job here.**\nThat's why."
   end
 
   subject { @board }
@@ -30,6 +34,8 @@ describe Board do
   it { should respond_to :icon }
   it { should respond_to :syndicates }
   it { should respond_to :categories }
+  it { should respond_to :suggestions }
+  it { should respond_to :benefits }
 
   it { should be_valid }
 
@@ -45,6 +51,16 @@ describe Board do
 
   describe "when tagline is blank" do
     before { subject.tagline = ' ' }
+    it { should_not be_valid }
+  end
+
+  describe "when suggestions is blank" do
+    before { subject.suggestions = ' ' }
+    it { should_not be_valid }
+  end
+
+  describe "when benefits is blank" do
+    before { subject.benefits = ' ' }
     it { should_not be_valid }
   end
 

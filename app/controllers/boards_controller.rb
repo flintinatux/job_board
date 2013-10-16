@@ -32,7 +32,7 @@ class BoardsController < ApplicationController
   private
 
     def board_params
-      params[:board].permit :subdomain, :title, :tagline, :icon
+      params[:board].permit :subdomain, :title, :tagline, :icon, :suggestions, :benefits
     end
 
     def find_board

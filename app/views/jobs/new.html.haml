@@ -1,8 +1,9 @@
 - provide :title, 'Post a job'
+- board_data = @current_board.attributes.merge categories: @current_board.categories
 
 - content_for :head do
   :coffee
-    window.CurrentBoard = categories: #{ @current_board.categories.to_json }
+    window.CurrentBoard = #{ board_data.to_json }
   = javascript_include_tag "new_job", defer: :defer
 
 - content_for :header do
@@ -10,4 +11,4 @@
 
 #jobs
   #create
-    = render 'create'
+    = render 'create', currentBoard: board_data

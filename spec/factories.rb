@@ -7,9 +7,11 @@ FactoryGirl.define do
   end
 
   factory :board do
-    sequence(:subdomain)  { |n| "board-#{n}" }
-    sequence(:title)      { |n| "Job Board #{n}" }
-    sequence(:tagline)    { |n| "Everybody likes to post on Job Board #{n}!" }
+    sequence(:subdomain)    { |n| "board-#{n}" }
+    sequence(:title)        { |n| "Job Board #{n}" }
+    sequence(:tagline)      { |n| "Everybody likes to post on Job Board #{n}!" }
+    sequence(:suggestions)  { |n| "Job suggestions #{n}!" }
+    sequence(:benefits)     { |n| "**You want to post a job on Job Board #{n}.**\nThat's why." }
   end
 
   factory :category do

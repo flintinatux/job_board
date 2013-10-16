@@ -1,17 +1,8 @@
+- board = (window.CurrentBoard || @currentBoard)
+
 .benefits
   %h3 Why post on our Job Board?
-  %p
-    %strong You'll target the cream of the crop.
-    %br
-    Where you post your job has a lot to do with the kind of people you'll attract. Our Job Board attracts the best because it's featured on industry-leading sites such as Signal vs. Noise, A List Apart, Zeldman.com, Kottke.org, Coudal.com, and the Ruby on Rails site. People who visit these sites value beautiful design, clean code, and high standards.
-  %p
-    %strong One of a few, not one of many.
-    %br
-    You won't have to worry about being a needle in a haystack. We charge more than other job boards to keep supply in check. There are usually less than 200 jobs on our Job Board at any one time. That means your job listing won't get lost in the shuffle like it does at other job sites. Candidates will find you.
-  %p
-    %strong Trusted by industry leaders.
-    %br
-    Industry leaders like The New York Times, CNET, Adobe, American Express, NBC, Trek, Skype, Yelp, and Facebook all use the 37signals Job Board to find the best of the best. Many of these brands come back again and again to find new candidates as their hiring needs expand.
+  != marked board.benefits
 
 %h1.tk-goudy-bookletter-1911 Step 1: Create your ad
 %form
@@ -23,7 +14,7 @@
       .form-group
         %label.col-sm-2.control-label{ for: 'title' } Job title
         .col-sm-10
-          %input.form-control#title{ name: 'title', type: 'text', placeholder: '"RN Med Surg" or "Emergency Medical Technician"' }
+          %input.form-control#title{ name: 'title', type: 'text', placeholder: board.suggestions }
 
       .form-group
         %label.col-sm-2.control-label{ for: 'category_id' } Category

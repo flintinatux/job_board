@@ -18,7 +18,9 @@ ActiveRecord::Schema.define(version: 20131006121000) do
     t.string   "title"
     t.string   "tagline"
     t.string   "icon"
-    t.string   "syndicates", default: [], array: true
+    t.string   "syndicates",  default: [], array: true
+    t.string   "suggestions"
+    t.text     "benefits"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

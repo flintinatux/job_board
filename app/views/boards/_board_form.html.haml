@@ -12,16 +12,23 @@
       = f.label :subdomain, class: 'control-label'
       = f.text_field :subdomain, class: 'form-control', placeholder: 'Subdomain'
       = render 'field_error_message', object: f.object, field: :subdomain
-    .form-group.col-sm-8
+    .form-group.col-sm-4
       = f.label :title, class: 'control-label'
       = f.text_field :title, class: 'form-control', placeholder: 'Title'
       = render 'field_error_message', object: f.object, field: :title
-  .row
     .form-group.col-sm-4
       = f.label :icon, class: 'control-label'
       = f.text_field :icon, class: 'form-control', placeholder: 'ex: icon-user-md'
       = render 'field_error_message', object: f.object, field: :icon
-    .form-group.col-sm-8
+    .form-group.col-sm-12
       = f.label :tagline, 'Tagline', class: 'control-label'
       = f.text_field :tagline, class: 'form-control', placeholder: "Don't forget to use markdown!"
       = render 'field_error_message', object: f.object, field: :tagline
+    .form-group.col-sm-12
+      = f.label :suggestions, 'Job title suggestions', class: 'control-label'
+      = f.text_field :suggestions, class: 'form-control', placeholder: "Job title suggestions"
+      = render 'field_error_message', object: f.object, field: :suggestions
+    .form-group.col-sm-12
+      = f.label :benefits, 'Job board benefits', class: 'control-label'
+      = f.text_area :benefits, class: 'form-control', rows: 24, placeholder: "Job board benefits"
+      = render 'field_error_message', object: f.object, field: :benefits
