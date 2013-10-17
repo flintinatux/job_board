@@ -8,13 +8,13 @@ class NewJob.Views.Preview extends NewJob.CompositeView
 
   events:
     'click span.make_changes': 'makeChanges'
-    'click button.continue':   'purchase'
+    'click button.continue':   'continue'
+
+  continue: ->
+    NewJob.router.navigate 'purchase', trigger: true
 
   makeChanges: ->
     NewJob.router.navigate '', trigger: true
-
-  purchase: ->
-    NewJob.router.navigate 'purchase', trigger: true
 
   render: ->
     @$el.html @template(job: @model.attributes)

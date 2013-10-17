@@ -1,10 +1,32 @@
 .content-header
   %h1.tk-goudy-bookletter-1911 Step 3: Purchase your ad
 
-%p A purchase form or something...
+%h3.tk-goudy-bookletter-1911.text-info
+  %icon.icon-lock
+  Enter your billing information:
 
-.well
-  %h3 Your ad is $400 and it will run for 30 days starting right now.
-  %p
-    You are only permitted to post one job opening per ad (you cannot say “We have 4 open positions...”). This charge is non refundable. JobBoard.com reserves the right to deny or remove job posts at our discretion (we will refund your money if we don’t run your ad). If you have questions please send a message to support:
-    %a{ href: '/' }
+%form
+  .form-horizontal
+    .form-group
+      %label.col-sm-2.control-label{ for: 'number' } Card number
+      .col-sm-6
+        %input.form-control#number{ type: 'text', autocomplete: 'off', 'data-encrypted-name': 'number' }
+    .form-group
+      %label.col-sm-2.control-label{ for: 'cvv' } CVV
+      .col-sm-2
+        %input.form-control#cvv{ type: 'text', maxlength: 4, autocomplete: 'off', 'data-encrypted-name': 'cvv' }
+    .form-group
+      %label.col-sm-2.control-label Expiration
+      .col-sm-2
+        %input.form-control#month{ type: 'text', maxlength: 2, autocomplete: 'off', name: 'month', placeholder: 'MM' }
+      .col-sm-2
+        %input.form-control#number{ type: 'text', maxlength: 4, autocomplete: 'off', name: 'year', placeholder: 'YYYY' }
+
+  .well
+    %h3.tk-goudy-bookletter-1911 Your ad is $400 and it will run for 30 days starting right now.
+    %p
+      You are only permitted to post one job opening per ad (you cannot say “We have 4 open positions...”). This charge is non refundable. JobBoard.com reserves the right to deny or remove job posts at our discretion (we will refund your money if we don’t run your ad). If you have questions please send a message to support:
+      %a{ href: '/' } http://jobboard.com/billing
+    .content-header
+      != JST['jobs/action_buttons'] continueText: 'Place order and publish your ad'
+    .clearfix

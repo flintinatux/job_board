@@ -11,7 +11,8 @@ JobBoard::Application.routes.draw do
     end
   end
 
-  get '/jobs/new/preview', to: 'jobs#new'
+  get '/jobs/new/preview',  to: 'jobs#new'
+  get '/jobs/new/purchase', to: 'jobs#new'
 
   get    '/signin',  to: 'sessions#new'
   delete '/signout', to: 'sessions#destroy'
