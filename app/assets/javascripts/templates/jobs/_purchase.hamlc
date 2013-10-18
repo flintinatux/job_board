@@ -29,12 +29,13 @@
       .col-sm-2
         %input.form-control#postal_code{ type: 'text', maxlength: 9, autocomplete: 'off', name: 'credit_card[postal_code]' }
     .form-group
-      %label.col-sm-2.control-label{ for: 'cvv' } CCVN#
+      %label.col-sm-2.control-label{ for: 'cvv' } CVV
       .col-sm-2
         %input.form-control#cvv{ type: 'text', maxlength: 4, autocomplete: 'off', 'data-encrypted-name': 'credit_card[cvv]' }
-      .col-sm-2
-        %img.cvv2{ src: ImagePaths.cvv2 }
-        %img.cvv2_amex{ src: ImagePaths.cvv2_amex }
+      .col-sm-8
+        %ul.cvv_types.list-inline
+          %li.cvv.visa{ title: 'Most cards', 'data-toggle': 'tooltip' }
+          %li.cvv.amex{ title: 'American Express', 'data-toggle': 'tooltip' }
 
   .well
     %h3.tk-goudy-bookletter-1911 Your ad is $400 and it will run for 30 days starting right now.

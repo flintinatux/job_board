@@ -248,6 +248,25 @@
           }
         }
       }
+
+      .cvv_types {
+        margin-top: 1px;
+
+        .cvv{
+          height: 31px;
+          width: 51px;
+          text-indent: -9999px;
+          background-position: 0 0;
+
+          &.visa {
+            background-image: url(image-path("cvv2.gif"));
+          }
+
+          &.amex {
+            background-image: url(image-path("cvv2_amex.gif"));
+          }
+        }
+      }
     }
 
     .well {

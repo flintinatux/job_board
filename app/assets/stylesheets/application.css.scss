@@ -13,6 +13,10 @@
 //   }
 // }
 
+.tk-goudy-bookletter-1911 {
+  font-family: "goudy-bookletter-1911","Georgia",serif;
+}
+
 .container {
   max-width: none !important;
   width: 860px;
@@ -29,6 +33,7 @@ form {
 
   p.text-danger {
     margin: 5px 0 0 0;
+    white-space: nowrap;
   }
 }
 

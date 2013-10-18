@@ -4,9 +4,6 @@
 - content_for :head do
   :coffee
     window.CurrentBoard = #{ board_data.to_json }
-    window.ImagePaths =
-      cvv2:       '#{ image_path 'cvv2.gif' }'
-      cvv2_amex:  '#{ image_path 'cvv2_amex.gif' }'
   = javascript_include_tag "new_job", defer: :defer
 
 - content_for :header do
