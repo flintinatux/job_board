@@ -1,137 +1,14 @@
-- board = (window.CurrentBoard || @currentBoard)
+- @board = (window.CurrentBoard || @currentBoard)
 
 .benefits
   %h3 Why post on our Job Board?
-  != marked board.benefits
+  != marked @board.benefits
 
 %h1.tk-goudy-bookletter-1911 Step 1: Create your ad
 %form
 
-  %h3.tk-goudy-bookletter-1911.text-info First, tell us about the position:
-
-  .form-horizontal.row
-    .col-sm-8
-      .form-group
-        %label.col-sm-2.control-label{ for: 'title' } Job title
-        .col-sm-10
-          %input.form-control#title{ name: 'title', type: 'text', placeholder: board.suggestions }
-
-      .form-group
-        %label.col-sm-2.control-label{ for: 'category_id' } Category
-        .col-sm-10
-          %select.form-control#category_id{ name: 'category_id' }
-
-      .form-group
-        %label.col-sm-2.control-label{ for: 'location' } Location
-        .col-sm-10
-          %input.form-control#location{ name: 'location', type: 'text', placeholder: '"Atlanta, GA", "London, England", or "Anywhere"' }
-
-  .form-group.row
-    %label.col-sm-4.control-label{ for: 'description' } Job description
-    %p.help.col-sm-4.text-right.text-muted
-      Format with
-      %a{ href: '#markdown', 'data-toggle': 'modal' } Markdown syntax
-    .col-sm-8
-      %textarea.form-control#description{ name: 'description', rows: 16 }
-
-  .form-group.row
-    %label.col-sm-4.control-label{ for: 'instructions' } How do people apply for this job?
-    %p.help.col-sm-4.text-right.text-muted
-      Format with
-      %a{ href: '#markdown', 'data-toggle': 'modal' } Markdown syntax
-    .col-sm-8
-      %textarea.form-control#instructions{ name: 'instructions', rows: 3, placeholder: 'Example: Send a resume to janet@company-name.com' }
-
-  %h3.tk-goudy-bookletter-1911.text-info Tell us about your company:
-
-  .form-horizontal.row
-    .col-sm-8
-      .form-group
-        %label.col-sm-2.control-label{ for: 'company' } Name
-        .col-sm-10
-          %input.form-control#company{ name: 'company', type: 'text', placeholder: 'Enter your company or organization’s name.' }
-
-      .form-group
-        %label.col-sm-2.control-label{ for: 'url' } URL
-        .col-sm-10
-          %input.form-control#url{ name: 'url', type: 'text', placeholder: 'Example: http://www.google.com' }
-
-      .form-group
-        %label.col-sm-2.control-label{ for: 'email' } Email
-        .col-sm-10
-          %input.form-control#email{ name: 'email', type: 'text', placeholder: 'This is where we’ll send your receipt and confirmation email.' }
-
-  %h3.tk-goudy-bookletter-1911.text-info Help your ad stand out:
-
-  .row
-    .col-sm-5
-      %p
-        For only
-        %strong $50 more
-        you can highlight your ad. Highlighted ads have a yellow background in the list so they stand out against the others.
-      .checkbox
-        %label
-          %input#highlight{ name: 'highlight', type: 'checkbox', value: 1 }
-          %strong Yes, highlight my ad
-          for only $50.
+  != JST['jobs/job_fields'] board: @board
 
   %button.btn.btn-success{ type: 'submit', data: { disable_with: 'Continuing to Step 2...' } } Continue to Step 2 to preview your ad
 
-.modal#markdown.fade{ tabindex: '-1', role: 'dialog', 'aria-labelledby': 'markdown', 'aria-hidden': true }
-  .modal-dialog
-    .modal-content
-      .modal-header
-        %button.close{ 'data-dismiss': 'modal', 'aria-hidden': true } &times;
-        %h4.modal-title Markdown cheatsheet
-      .modal-body
-        .row
-          .col-sm-5.text-center
-            %p Bold with **two asterisks**
-          %p.col-sm-2.text-center.text-muted
-            %icon.icon-arrow-right
-          .col-sm-5.text-center!= marked 'Bold with **two asterisks**'
-
-        .row
-          .col-sm-5.text-center
-            %p Italicize with _underscores_
-          %p.col-sm-2.text-center.text-muted
-            %icon.icon-arrow-right
-          .col-sm-5.text-center!= marked 'Italicize with _underscores_'
-
-        .row
-          .col-sm-offset-1.col-sm-4.text-left
-            %p
-              = '- Use dashes'
-              %br
-              = '- To make'
-              %br
-              = '- Bulleted lists'
-          %p.col-sm-2.text-center.text-muted
-            %br
-            %icon.icon-arrow-right
-          .col-sm-offset-1.col-sm-4.text-left!= marked '- Use dashes\n- To make\n- Bulleted lists'
-
-        .row
-          .col-sm-offset-1.col-sm-4.text-left
-            %p
-              = '1. Use numbers'
-              %br
-              = '2. To make'
-              %br
-              = '3. Numbered lists'
-          %p.col-sm-2.text-center.text-muted
-            %br
-            %icon.icon-arrow-right
-          .col-sm-offset-1.col-sm-4.text-left!= marked '1. Use numbers\n2. To make\n3. Numbered lists'
-
-        .row
-          .col-sm-5.text-center
-            %p [Linkify](http://google.com)
-          %p.col-sm-2.text-center.text-muted
-            %icon.icon-arrow-right
-          .col-sm-5.text-center!= marked '[Linkify](http://google.com)'
-
-        %p.more-details.text-center
-          %a{ href: 'http://daringfireball.net/projects/markdown/syntax', target: '_blank' } Or click here for more Markdown syntax details!
-      .modal-footer
-        %button.btn.btn-primary{ 'data-dismiss': 'modal' } Got it!
+!= JST['jobs/markdown_cheatsheet']()

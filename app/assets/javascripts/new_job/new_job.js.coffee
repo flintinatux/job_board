@@ -5,7 +5,7 @@ ClassMethods =
   include: (obj) ->
     for key, value of obj when key isnt 'included'
       @::[key] = value
-    object.included?.apply(@)
+    obj.included?.apply(@)
     this
 
   addInitializer: (initializer) ->

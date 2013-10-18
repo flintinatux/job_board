@@ -19,3 +19,6 @@ class NewJob.Models.CreditCard extends Backbone.Model
     postal_code:
       required: true
       msg: 'Please enter your zip code.'
+
+  clean: ->
+    @attributes = {}

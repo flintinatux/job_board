@@ -7,7 +7,7 @@ class NewJob.Views.Purchase extends NewJob.CompositeView
     @model = new NewJob.Models.CreditCard()
     @listenTo @model, 'change:number', @identifyCard
 
-  bindings:
+  creditCardBindings:
     '#number':
       observe: 'number'
       initialize: ($el) -> $el.payment 'formatCardNumber'
@@ -25,6 +25,22 @@ class NewJob.Views.Purchase extends NewJob.CompositeView
           current = new Date().getFullYear()
           [current..current+15]
     '#postal_code': 'postal_code'
+
+  jobBindings:
+    '#title':         'title'
+    '#category_id':
+      observe: 'category_id'
+      selectOptions:
+        collection: 'CurrentBoard.categories'
+        labelPath:  'name'
+        valuePath:  'id'
+    '#location':      'location'
+    '#description':   'description'
+    '#instructions':  'instructions'
+    '#highlight':     'highlight'
+    '#company':       'company'
+    '#url':           'url'
+    '#email':         'email'
 
   events:
     'click span.make_changes': 'makeChanges'
@@ -46,11 +62,14 @@ class NewJob.Views.Purchase extends NewJob.CompositeView
 
   remove: ->
     Backbone.Validation.unbind this
+    @model.clean()
     super()
 
   render: ->
     @$el.html @template()
-    @stickit()
+    @$('[data-toggle=tooltip]').tooltip()
+    @stickit @model, @creditCardBindings
+    @stickit NewJob.job, @jobBindings
     Backbone.Validation.bind this
     this
 
@@ -61,7 +80,8 @@ class NewJob.Views.Purchase extends NewJob.CompositeView
       # @$('button.continue').attr 'disabled', true
       # encrypt and submit the form
     else
-      # don't submit
+      NewJob.flash.danger "Please fix the errors below before continuing."
+      $(document).scrollTop 0
 
   _months: [
       { value: '1', label: '1 - Jan' }

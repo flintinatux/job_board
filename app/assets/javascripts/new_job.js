@@ -21,6 +21,7 @@
 //= require jquery.payment/lib/jquery.payment
 //= require new_job/new_job
 //= require_tree ./templates/jobs
+//= require_tree ./new_job/concerns
 //= require_tree ./new_job/support
 //= require_tree ./new_job/models
 //= require_tree ./new_job/collections

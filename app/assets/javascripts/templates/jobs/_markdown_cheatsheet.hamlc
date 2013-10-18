@@ -1,0 +1,58 @@
+.modal#markdown.fade{ tabindex: '-1', role: 'dialog', 'aria-labelledby': 'markdown', 'aria-hidden': true }
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{ 'data-dismiss': 'modal', 'aria-hidden': true } &times;
+        %h4.modal-title Markdown cheatsheet
+      .modal-body
+        .row
+          .col-sm-5.text-center
+            %p Bold with **two asterisks**
+          %p.col-sm-2.text-center.text-muted
+            %icon.icon-arrow-right
+          .col-sm-5.text-center!= marked 'Bold with **two asterisks**'
+
+        .row
+          .col-sm-5.text-center
+            %p Italicize with _underscores_
+          %p.col-sm-2.text-center.text-muted
+            %icon.icon-arrow-right
+          .col-sm-5.text-center!= marked 'Italicize with _underscores_'
+
+        .row
+          .col-sm-offset-1.col-sm-4.text-left
+            %p
+              = '- Use dashes'
+              %br
+              = '- To make'
+              %br
+              = '- Bulleted lists'
+          %p.col-sm-2.text-center.text-muted
+            %br
+            %icon.icon-arrow-right
+          .col-sm-offset-1.col-sm-4.text-left!= marked '- Use dashes\n- To make\n- Bulleted lists'
+
+        .row
+          .col-sm-offset-1.col-sm-4.text-left
+            %p
+              = '1. Use numbers'
+              %br
+              = '2. To make'
+              %br
+              = '3. Numbered lists'
+          %p.col-sm-2.text-center.text-muted
+            %br
+            %icon.icon-arrow-right
+          .col-sm-offset-1.col-sm-4.text-left!= marked '1. Use numbers\n2. To make\n3. Numbered lists'
+
+        .row
+          .col-sm-5.text-center
+            %p [Linkify](http://google.com)
+          %p.col-sm-2.text-center.text-muted
+            %icon.icon-arrow-right
+          .col-sm-5.text-center!= marked '[Linkify](http://google.com)'
+
+        %p.more-details.text-center
+          %a{ href: 'http://daringfireball.net/projects/markdown/syntax', target: '_blank' } Or click here for more Markdown syntax details!
+      .modal-footer
+        %button.btn.btn-primary{ 'data-dismiss': 'modal' } Got it!
