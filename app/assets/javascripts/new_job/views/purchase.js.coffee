@@ -5,6 +5,7 @@ class NewJob.Views.Purchase extends NewJob.CompositeView
   initialize: (options) ->
     super(options)
     @model = new NewJob.Models.CreditCard()
+    @listenTo @model, 'change:number', @identifyCard
 
   bindings:
     '#number':
@@ -23,11 +24,22 @@ class NewJob.Views.Purchase extends NewJob.CompositeView
         collection: ->
           current = new Date().getFullYear()
           [current..current+15]
-    '#zip_code': 'zip_code'
+    '#postal_code': 'postal_code'
 
   events:
     'click span.make_changes': 'makeChanges'
     'submit form': 'submit'
+
+  identifyCard: (model, number) ->
+    type = switch
+      when number.match /^5[1-5]/           then 'mastercard'
+      when number.match /^4/                then 'visa'
+      when number.match /^3(4|7)/           then 'american_express'
+      when number.match /^6011/             then 'discover'
+      when number.match /^(30[0-5]|36|38)/  then 'diners_club'
+      when number.match /^(3|2131|1800)/    then 'jcb'
+      else 'none'
+    @$('.card').each -> $(this).toggleClass 'identified', $(this).hasClass type
 
   makeChanges: ->
     NewJob.router.navigate '', trigger: true

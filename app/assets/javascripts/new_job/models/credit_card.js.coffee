@@ -2,9 +2,9 @@ class NewJob.Models.CreditCard extends Backbone.Model
   defaults:
     number: '4111111111111111'
     cvv:    '111'
-    month:  '11'
-    year:   '2015'
-    zip_code: '30120'
+    month:  '1'
+    year:   new Date().getFullYear().toString()
+    postal_code: '30120'
 
   validation:
     number:
@@ -16,6 +16,6 @@ class NewJob.Models.CreditCard extends Backbone.Model
       required: true
       rangeLength: [3,4]
       msg: 'Please enter a valid CVV.'
-    zip_code:
+    postal_code:
       required: true
       msg: 'Please enter your zip code.'

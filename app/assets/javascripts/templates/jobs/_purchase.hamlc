@@ -11,6 +11,12 @@
       %label.col-sm-2.control-label{ for: 'number' } Card number
       .col-sm-4
         %input.form-control#number{ type: 'text', autocomplete: 'off', 'data-encrypted-name': 'number' }
+      .col-sm-6
+        %ul.card_types.list-inline
+          - _.each ['Visa', 'Mastercard', 'American Express', 'Discover', 'JCB', 'Diners Club'], (name) ->
+            %li{ class: "card #{name.toLowerCase().replace(/\s+/g, '_')}", title: name }= name
+          %li
+            %span
     .form-group
       %label.col-sm-2.control-label Expiration
       .col-sm-2
@@ -18,13 +24,16 @@
       .col-sm-2
         %select.form-control#year{ 'data-encrypted-name': 'year' }
     .form-group
-      %label.col-sm-2.control-label{ for: 'zip_code' } Zip code
+      %label.col-sm-2.control-label{ for: 'postal_code' } ZIP/Postal code
       .col-sm-2
-        %input.form-control#zip_code{ type: 'text', maxlength: 9, autocomplete: 'off', name: 'zip_code' }
+        %input.form-control#postal_code{ type: 'text', maxlength: 9, autocomplete: 'off', name: 'postal_code' }
     .form-group
-      %label.col-sm-2.control-label{ for: 'cvv' } CVV
+      %label.col-sm-2.control-label{ for: 'cvv' } CCVN#
       .col-sm-2
         %input.form-control#cvv{ type: 'text', maxlength: 4, autocomplete: 'off', 'data-encrypted-name': 'cvv' }
+      .col-sm-2
+        %img.cvv2{ src: ImagePaths.cvv2 }
+        %img.cvv2_amex{ src: ImagePaths.cvv2_amex }
 
   .well
     %h3.tk-goudy-bookletter-1911 Your ad is $400 and it will run for 30 days starting right now.
