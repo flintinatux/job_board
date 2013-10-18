@@ -7,8 +7,12 @@ class NewJob.Views.Purchase extends NewJob.CompositeView
     @model = new NewJob.Models.CreditCard()
 
   bindings:
-    '#number': 'number'
-    '#cvv':    'cvv'
+    '#number':
+      observe: 'number'
+      initialize: ($el) -> $el.payment 'formatCardNumber'
+    '#cvv':
+      observe: 'cvv'
+      initialize: ($el) -> $el.payment 'formatCardCVC'
     '#month':
       observe: 'month'
       selectOptions:
@@ -19,20 +23,33 @@ class NewJob.Views.Purchase extends NewJob.CompositeView
         collection: ->
           current = new Date().getFullYear()
           [current..current+15]
+    '#zip_code': 'zip_code'
 
   events:
     'click span.make_changes': 'makeChanges'
-    'click button.continue':   'continue'
-
-  continue: ->
+    'submit form': 'submit'
 
   makeChanges: ->
     NewJob.router.navigate '', trigger: true
 
+  remove: ->
+    Backbone.Validation.unbind this
+    super()
+
   render: ->
     @$el.html @template()
     @stickit()
+    Backbone.Validation.bind this
     this
+
+  submit: (event) ->
+    event.stopPropagation()
+    event.preventDefault()
+    unless @model.validate()
+      # @$('button.continue').attr 'disabled', true
+      # encrypt and submit the form
+    else
+      # don't submit
 
   _months: [
       { value: '1', label: '1 - Jan' }

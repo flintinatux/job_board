@@ -18,6 +18,7 @@
 //= require hamlcoffee
 //= require marked/lib/marked
 //= require marked_options
+//= require jquery.payment/lib/jquery.payment
 //= require new_job/new_job
 //= require_tree ./templates/jobs
 //= require_tree ./new_job/support

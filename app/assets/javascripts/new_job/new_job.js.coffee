@@ -30,10 +30,10 @@ Backbone.Router     = Backbone.Router.extend      ObjectMethods, ClassMethods
 
 _.extend Backbone.Validation.callbacks,
   field: (view, attr) ->
-    view.$("[name=#{attr}]")
+    view.$("##{attr}")
 
   helpText: (view, attr) ->
-    view.$("[name=#{attr}] ~ p.text-danger")
+    view.$("##{attr} ~ p.text-danger")
 
   valid: (view, attr, selector) ->
     @field(view, attr).closest('.form-group').removeClass 'has-error'

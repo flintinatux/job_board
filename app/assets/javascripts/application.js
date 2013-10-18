@@ -12,7 +12,7 @@
 //
 //= require html5shiv/dist/html5shiv
 //= require respond/respond.min
-//= require jquery
+//= require jquery/jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree ./application
