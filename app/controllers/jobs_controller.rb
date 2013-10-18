@@ -5,6 +5,10 @@ class JobsController < ApplicationController
   def new
   end
 
+  def create
+
+  end
+
   def preview
     @job = Job.new job_params
   end
