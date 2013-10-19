@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe JobsController do
-  let(:job)         { FactoryGirl.attributes_for :job }
+  let(:board)     { FactoryGirl.create :board }
+  let(:category)  { FactoryGirl.create :category, board: board }
+  let(:job)       { FactoryGirl.attributes_for(:job).merge category_id: category.id }
   let(:credit_card) { FactoryGirl.attributes_for :credit_card }
 
   describe 'POST #create' do
@@ -11,7 +13,7 @@ describe JobsController do
 
       it "doesn't create a new job" do
         expect do
-          post :create, format: :js, job: invalid_job, credit_card: credit_card
+          post :create, format: :js, subdomain: board.subdomain, job: invalid_job, credit_card: credit_card
         end.to_not change(Job, :count)
       end
     end
@@ -22,14 +24,14 @@ describe JobsController do
 
         it "doesn't create a new job" do
           expect do
-            post :create, format: :js, job: job, credit_card: invalid_card
+            post :create, format: :js, subdomain: board.subdomain, job: job, credit_card: invalid_card
           end.to_not change(Job, :count)
         end
       end
 
       context "with a valid card" do
         def valid_request
-          post :create, format: :js, job: job, credit_card: credit_card
+          post :create, format: :js, subdomain: board.subdomain, job: job, credit_card: credit_card
         end
         let(:result) { double('Result').as_null_object }
 
@@ -41,6 +43,17 @@ describe JobsController do
 
           it "doesn't create a job" do
             expect { valid_request }.to_not change(Job, :count)
+          end
+        end
+
+        context "and a successful transaction" do
+          before do
+            result.stub(:success?).and_return true
+            CreditCard.any_instance.stub(:charge).and_return result
+          end
+
+          it "creates a job" do
+            expect { valid_request }.to change(Job, :count).by(1)
           end
         end
       end
