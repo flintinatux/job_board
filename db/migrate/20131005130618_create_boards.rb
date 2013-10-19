@@ -8,6 +8,7 @@ class CreateBoards < ActiveRecord::Migration
       t.string :syndicates, array: true, default: '{}'
       t.string :suggestions
       t.text   :benefits
+      t.money  :price
 
       t.timestamps
     end

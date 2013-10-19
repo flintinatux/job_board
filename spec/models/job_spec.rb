@@ -64,11 +64,6 @@ describe Job do
     it { should_not be_valid }
   end
 
-  describe "when description is less than 150 chars" do
-    before { subject.description = 'a' * 149 }
-    it { should_not be_valid }
-  end
-
   describe "when instructions is blank" do
     before { subject.instructions = ' ' }
     it { should_not be_valid }

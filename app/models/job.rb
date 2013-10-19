@@ -28,7 +28,7 @@ class Job < ActiveRecord::Base
 
   validates :title,         presence: true
   validates :location,      presence: true
-  validates :description,   presence: true, length: { minimum: 150 }
+  validates :description,   presence: true
   validates :instructions,  presence: true
   validates :company,       presence: true
   validates :url,           url: true

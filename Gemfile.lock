@@ -34,6 +34,8 @@ GEM
       railties (>= 3.1.0)
       sass-rails (>= 3.1.0)
     bower-rails (0.5.0)
+    braintree (2.25.0)
+      builder (>= 2.0.0)
     builder (3.1.4)
     coderay (1.0.9)
     coffee-rails (4.0.0)
@@ -109,6 +111,12 @@ GEM
     method_source (0.8.2)
     mime-types (1.25)
     minitest (4.7.5)
+    money (5.1.1)
+      i18n (~> 0.6.0)
+    money-rails (0.8.1)
+      activesupport (>= 3.0)
+      money (~> 5.1.0)
+      railties (>= 3.0)
     multi_json (1.8.0)
     pg (0.17.0)
     pg_array_parser (0.0.9)
@@ -209,6 +217,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   bootstrap-sass-rails
   bower-rails
+  braintree
   coffee-rails (~> 4.0.0)
   dalli
   database_cleaner (~> 1.0.0.RC1)
@@ -224,6 +233,7 @@ DEPENDENCIES
   jquery-rails
   libnotify
   memcacheable
+  money-rails
   pg
   pg_array_parser
   pg_search

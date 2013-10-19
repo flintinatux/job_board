@@ -16,13 +16,33 @@ describe JobsController do
       end
     end
 
-    context "with a valid card" do
-      before do
-        post :create, format: :js, job: job, credit_card: credit_card
+    context "with valid job attributes" do
+      context "with an invalid card" do
+        let(:invalid_card) { credit_card.merge number: ' ' }
+
+        it "doesn't create a new job" do
+          expect do
+            post :create, format: :js, job: job, credit_card: invalid_card
+          end.to_not change(Job, :count)
+        end
       end
 
-      it "creates the job" do
+      context "with a valid card" do
+        def valid_request
+          post :create, format: :js, job: job, credit_card: credit_card
+        end
+        let(:result) { double('Result').as_null_object }
 
+        context "and a rejected transaction" do
+          before do
+            result.stub(:success?).and_return false
+            CreditCard.any_instance.stub(:charge).and_return result
+          end
+
+          it "doesn't create a job" do
+            expect { valid_request }.to_not change(Job, :count)
+          end
+        end
       end
     end
   end

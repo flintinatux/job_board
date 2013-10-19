@@ -8,12 +8,17 @@ class CreditCard
   validates :postal_code, presence: true
   validates :cvv,    presence: true, length: { minimum: 3, maximum: 4 }
 
-  validate  :date_in_the_future
+  validate  :expires_in_the_future
+
+  def charge(amount)
+
+  end
 
   private
 
-    def date_in_the_future
-      if Date.new(year, month, 1) < Date.today.beginning_of_month
+    def expires_in_the_future
+      return unless month.present? and year.present?
+      if Date.new(year.to_i, month.to_i, 1) < Date.today.beginning_of_month
         errors.add :expires_at, "Please choose an expiration date in the future."
       end
     end

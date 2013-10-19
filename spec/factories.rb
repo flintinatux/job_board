@@ -11,7 +11,8 @@ FactoryGirl.define do
     sequence(:title)        { |n| "Job Board #{n}" }
     sequence(:tagline)      { |n| "Everybody likes to post on Job Board #{n}!" }
     sequence(:suggestions)  { |n| "Job suggestions #{n}!" }
-    sequence(:benefits)     { |n| "**You want to post a job on Job Board #{n}.**\nThat's why." }
+    sequence(:benefits)     { |n| "**You want to post a job on Job Board #{n}.**" }
+    sequence(:price)        { 10 + Random.new.rand(390) }
   end
 
   factory :category do

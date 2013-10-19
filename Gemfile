@@ -4,9 +4,11 @@ gem 'rails', '4.0.0'
 
 # Backend
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'braintree'
 gem 'dalli'
 gem 'foreman'
 gem 'memcacheable'
+gem 'money-rails'
 gem 'pg'
 gem 'pg_array_parser'
 gem 'pg_search'

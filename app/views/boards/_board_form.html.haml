@@ -26,10 +26,17 @@
       = f.text_field :tagline, class: 'form-control', placeholder: "Don't forget to use markdown!"
       = render 'field_error_message', object: f.object, field: :tagline
   .row
-    .form-group.col-sm-12
+    .form-group.col-sm-8
       = f.label :suggestions, 'Job title suggestions', class: 'control-label'
       = f.text_field :suggestions, class: 'form-control', placeholder: "Job title suggestions"
       = render 'field_error_message', object: f.object, field: :suggestions
+    .form-group.col-sm-4
+      = f.label :price, 'Price', class: 'control-label'
+      .input-group
+        %span.input-group-addon
+          %icon.icon-usd
+        = f.text_field :price, class: 'form-control text-right', placeholder: "0.00"
+      = render 'field_error_message', object: f.object, field: :price
   .row
     .form-group.col-sm-12
       = f.label :benefits, 'Job board benefits', class: 'control-label'
