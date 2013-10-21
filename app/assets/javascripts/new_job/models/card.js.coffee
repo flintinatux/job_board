@@ -1,4 +1,4 @@
-class NewJob.Models.CreditCard extends Backbone.Model
+class NewJob.Models.Card extends Backbone.Model
   defaults:
     number: '4111111111111111'
     cvv:    '111'

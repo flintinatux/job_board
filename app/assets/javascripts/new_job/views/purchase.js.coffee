@@ -4,10 +4,10 @@ class NewJob.Views.Purchase extends NewJob.CompositeView
 
   initialize: (options) ->
     super(options)
-    @model = new NewJob.Models.CreditCard()
+    @model = new NewJob.Models.Card()
     @listenTo @model, 'change:number', @identifyCard
 
-  creditCardBindings:
+  cardBindings:
     '#number':
       observe: 'number'
       initialize: ($el) -> $el.payment 'formatCardNumber'
@@ -68,7 +68,7 @@ class NewJob.Views.Purchase extends NewJob.CompositeView
   render: ->
     @$el.html @template()
     @$('[data-toggle=tooltip]').tooltip()
-    @stickit @model, @creditCardBindings
+    @stickit @model, @cardBindings
     @stickit NewJob.job, @jobBindings
     Backbone.Validation.bind this
     this

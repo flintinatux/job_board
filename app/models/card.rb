@@ -1,4 +1,4 @@
-class CreditCard
+class Card
   include ActiveModel::Model
   attr_accessor :number, :month, :year, :postal_code, :cvv
 
@@ -11,7 +11,21 @@ class CreditCard
   validate  :expires_in_the_future
 
   def charge(amount)
-
+    Braintree::Transaction.sale(
+      amount: amount.to_s,
+      credit_card: {
+        number: number,
+        cvv:    cvv,
+        expiration_month: month,
+        expiration_year:  year
+      },
+      billing: {
+        postal_code: postal_code
+      },
+      options: {
+        submit_for_settlement: true
+      }
+    )
   end
 
   private

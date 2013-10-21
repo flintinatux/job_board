@@ -4,7 +4,7 @@ describe JobsController do
   let(:board)     { FactoryGirl.create :board }
   let(:category)  { FactoryGirl.create :category, board: board }
   let(:job)       { FactoryGirl.attributes_for(:job).merge category_id: category.id }
-  let(:credit_card) { FactoryGirl.attributes_for :credit_card }
+  let(:card)      { FactoryGirl.attributes_for :card }
 
   describe 'POST #create' do
 
@@ -13,32 +13,32 @@ describe JobsController do
 
       it "doesn't create a new job" do
         expect do
-          post :create, format: :js, subdomain: board.subdomain, job: invalid_job, credit_card: credit_card
+          post :create, format: :js, subdomain: board.subdomain, job: invalid_job, card: card
         end.to_not change(Job, :count)
       end
     end
 
     context "with valid job attributes" do
       context "with an invalid card" do
-        let(:invalid_card) { credit_card.merge number: ' ' }
+        let(:invalid_card) { card.merge number: ' ' }
 
         it "doesn't create a new job" do
           expect do
-            post :create, format: :js, subdomain: board.subdomain, job: job, credit_card: invalid_card
+            post :create, format: :js, subdomain: board.subdomain, job: job, card: invalid_card
           end.to_not change(Job, :count)
         end
       end
 
       context "with a valid card" do
         def valid_request
-          post :create, format: :js, subdomain: board.subdomain, job: job, credit_card: credit_card
+          post :create, format: :js, subdomain: board.subdomain, job: job, card: card
         end
         let(:result) { double('Result').as_null_object }
 
         context "and a rejected transaction" do
           before do
             result.stub(:success?).and_return false
-            CreditCard.any_instance.stub(:charge).and_return result
+            Card.any_instance.stub(:charge).and_return result
           end
 
           it "doesn't create a job" do
@@ -49,7 +49,7 @@ describe JobsController do
         context "and a successful transaction" do
           before do
             result.stub(:success?).and_return true
-            CreditCard.any_instance.stub(:charge).and_return result
+            Card.any_instance.stub(:charge).and_return result
           end
 
           it "creates a job" do

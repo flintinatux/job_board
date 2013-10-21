@@ -6,8 +6,8 @@ class JobsController < ApplicationController
   end
 
   def create
-    if job.valid? and credit_card.valid?
-      @result = credit_card.charge @current_board.price
+    if job.valid? and card.valid?
+      @result = card.charge @current_board.price
       job.save if @result.success?
     end
 
@@ -27,8 +27,8 @@ class JobsController < ApplicationController
 
   private
 
-    def credit_card
-      @credit_card ||= CreditCard.new params[:credit_card]
+    def card
+      @card ||= Card.new params[:card]
     end
 
     def job

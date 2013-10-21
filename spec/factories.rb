@@ -31,7 +31,7 @@ FactoryGirl.define do
     sequence(:email)        { Faker::Internet.email }
   end
 
-  factory :credit_card do
+  factory :card do
     number '4111111111111111'
     sequence(:month)       { (1..12).to_a.sample }
     sequence(:year)        { Date.today.year + Random.new.rand(15) }

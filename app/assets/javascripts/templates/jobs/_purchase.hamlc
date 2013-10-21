@@ -13,7 +13,7 @@
     .form-group
       %label.col-sm-2.control-label{ for: 'number' } Card number
       .col-sm-4
-        %input.form-control#number{ type: 'text', autocomplete: 'off', 'data-encrypted-name': 'credit_card[number]' }
+        %input.form-control#number{ type: 'text', autocomplete: 'off', 'data-encrypted-name': 'card[number]' }
       .col-sm-6
         %ul.card_types.list-inline
           - _.each ['Visa', 'Mastercard', 'American Express', 'Discover', 'JCB', 'Diners Club'], (name) ->
@@ -21,17 +21,17 @@
     .form-group
       %label.col-sm-2.control-label Expiration
       .col-sm-2
-        %select.form-control#month{ name: 'credit_card[month]' }
+        %select.form-control#month{ name: 'card[month]' }
       .col-sm-2
-        %select.form-control#year{ name: 'credit_card[year]' }
+        %select.form-control#year{ name: 'card[year]' }
     .form-group
       %label.col-sm-2.control-label{ for: 'postal_code' } ZIP/Postal code
       .col-sm-2
-        %input.form-control#postal_code{ type: 'text', maxlength: 9, autocomplete: 'off', name: 'credit_card[postal_code]' }
+        %input.form-control#postal_code{ type: 'text', maxlength: 9, autocomplete: 'off', name: 'card[postal_code]' }
     .form-group
       %label.col-sm-2.control-label{ for: 'cvv' } CVV
       .col-sm-2
-        %input.form-control#cvv{ type: 'text', maxlength: 4, autocomplete: 'off', 'data-encrypted-name': 'credit_card[cvv]' }
+        %input.form-control#cvv{ type: 'text', maxlength: 4, autocomplete: 'off', 'data-encrypted-name': 'card[cvv]' }
       .col-sm-8
         %ul.cvv_types.list-inline
           %li.cvv.visa{ title: 'Most cards', 'data-toggle': 'tooltip' }
