@@ -1,5 +1,7 @@
 class JobsController < ApplicationController
   def index
+    @categories = @current_board.categories.includes :jobs
+    @categories.reject! { |category| category.jobs.size == 0 }
   end
 
   def new

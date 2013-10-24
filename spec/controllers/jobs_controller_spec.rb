@@ -1,10 +1,23 @@
 require 'spec_helper'
 
 describe JobsController do
-  let(:board)     { FactoryGirl.create :board }
-  let(:category)  { FactoryGirl.create :category, board: board }
-  let(:job)       { FactoryGirl.attributes_for(:job).merge category_id: category.id }
-  let(:card)      { FactoryGirl.attributes_for :card }
+  let(:board)      { FactoryGirl.create :board }
+  let(:categories) { 3.times.map { FactoryGirl.create :category, board: board } }
+  let(:category)   { categories.first }
+  let(:job)        { FactoryGirl.attributes_for(:job).merge category_id: category.id }
+  let(:card)       { FactoryGirl.attributes_for :card }
+
+  describe 'GET #index' do
+    let!(:categories_with_jobs) do
+      categories[0,2].each { |cat| FactoryGirl.create :job, category: cat }
+    end
+
+    before { get :index, subdomain: board.subdomain }
+
+    it "loads the categories with jobs" do
+      assigns(:categories).should eq categories_with_jobs
+    end
+  end
 
   describe 'POST #create' do
 
