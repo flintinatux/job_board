@@ -9,6 +9,16 @@ describe CategoriesController do
   let(:valid_attributes)    { FactoryGirl.attributes_for :category }
   let(:invalid_attributes)  { valid_attributes.merge name: ' ' }
 
+  describe 'GET #show' do
+    let(:category) { FactoryGirl.create :category, board: board }
+
+    before { get :show, subdomain: board.subdomain, category_id: category.id }
+
+    it "finds the right category" do
+      assigns(:category).should eq category
+    end
+  end
+
   describe 'POST #create' do
     context "with valid_attributes" do
       it "creates a new post" do
