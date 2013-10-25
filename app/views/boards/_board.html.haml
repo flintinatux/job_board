@@ -16,7 +16,7 @@
     .panel-body
       != $markdown.render board.tagline
     %ul.list-group
-      = render board.categories
+      = render partial: 'category_list_item', collection: board.categories, as: :category
       %li.list-group-item
         = link_to new_board_category_path(board) do
           %icon.icon-plus

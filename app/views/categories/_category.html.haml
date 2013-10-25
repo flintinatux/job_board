@@ -1,9 +1,2 @@
-%li.list-group-item
-  %nav.pull-right
-    = link_to '#', target: '_blank', title: 'View', data: { toggle: :tooltip } do
-      %icon.icon-eye-open
-    = link_to edit_board_category_path(category.board, category), title: 'Edit', data: { toggle: :tooltip } do
-      %icon.icon-pencil
-    = link_to [category.board, category], method: :delete, remote: true, title: 'Delete', data: { toggle: :tooltip, confirm: 'Are you sure you want to delete this category? You will permanently lose all jobs associated with it.' } do
-      %icon.icon-trash
-  = category.name
+.category
+  %h3.tk-goudy-bookletter-1911= "#{category.name} Jobs"

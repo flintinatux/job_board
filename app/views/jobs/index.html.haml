@@ -12,5 +12,7 @@
       = link_to "Post a job: #{ humanized_money_with_symbol @current_board.price } for 30 days", new_job_path, class: 'post_job btn btn-success btn-block'
 
   #list
-    .category
-      %h3.tk-goudy-bookletter-1911 Nursing Jobs
+    - if @categories.any?
+      = render @categories
+    - else
+      %p You need to add some categories with jobs.
