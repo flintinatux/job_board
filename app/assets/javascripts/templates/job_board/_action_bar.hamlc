@@ -1,9 +1,10 @@
-%form
+%form{ action: '/jobs/search', method: 'get' }
   .input-group.col-sm-5
     %span.input-group-addon
       %icon.icon-search
-    %input.form-control{ type: 'text', placeholder: 'Search: "atlanta", "full time", "design"...' }
+    %input#query.form-control{ type: 'text', placeholder: 'Search: "atlanta", "full time", "design"...', name: 'query' }
     -#= text_field_tag :term, nil, class: 'form-control', placeholder: "Search: 'atlanta', 'full time', 'design'..."
+}
 .col-sm-4.col-sm-offset-3
   %a.post_job.btn.btn-success.btn-block{ href: 'jobs/new' } Post a job: $400 for 30 days
   -#= link_to "Post a job: #{ humanized_money_with_symbol @current_board.price } for 30 days", new_job_path, class: 'post_job btn btn-success btn-block'
