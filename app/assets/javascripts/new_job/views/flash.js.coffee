@@ -1,5 +1,5 @@
-class NewJob.Views.Flash extends NewJob.CompositeView
-  template: JST['jobs/flash']
+class NewJob.Views.Flash extends Backbone.CompositeView
+  template: JST['application/flash']
 
   initialize: ->
     super()

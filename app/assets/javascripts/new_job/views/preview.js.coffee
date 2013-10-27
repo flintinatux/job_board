@@ -1,5 +1,5 @@
-class NewJob.Views.Preview extends NewJob.CompositeView
-  template: JST['jobs/preview']
+class NewJob.Views.Preview extends Backbone.CompositeView
+  template: JST['new_job/preview']
   id: 'preview'
 
   initialize: (options) ->

@@ -1,7 +1,11 @@
 class CategoriesController < ApplicationController
-  before_action :signed_in_user
+  before_action :signed_in_user, except: [:show]
   before_action :find_board, only: [:new, :create, :edit, :update, :destroy]
   before_action :find_category, only: [:edit, :update, :destroy]
+
+  def show
+
+  end
 
   def new
     @category = @board.categories.build

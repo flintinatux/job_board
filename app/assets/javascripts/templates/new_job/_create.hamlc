@@ -7,8 +7,8 @@
 %h1.tk-goudy-bookletter-1911 Step 1: Create your ad
 %form
 
-  != JST['jobs/job_fields'] board: @board
+  != JST['new_job/job_fields'] board: @board
 
   %button.btn.btn-success{ type: 'submit', data: { disable_with: 'Continuing to Step 2...' } } Continue to Step 2 to preview your ad
 
-!= JST['jobs/markdown_cheatsheet']()
+!= JST['new_job/markdown_cheatsheet']()

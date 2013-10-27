@@ -1,5 +1,5 @@
-class NewJob.Views.Purchase extends NewJob.CompositeView
-  template: JST['jobs/purchase']
+class NewJob.Views.Purchase extends Backbone.CompositeView
+  template: JST['new_job/purchase']
   id: 'purchase'
 
   initialize: (options) ->

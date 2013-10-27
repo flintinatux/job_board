@@ -1,37 +1,9 @@
-// Place all the styles related to the Jobs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-#jobs {
-  nav {
-    .input-group {
-      margin-bottom: 15px;
-    }
-
-    a.post_job {
-      font-weight: bold;
+#new_job {
+  nav.action-buttons {
+    span.make_changes {
+      @extend .text-danger;
       text-decoration: underline;
-      margin-bottom: 15px;
-    }
-
-    &.action-buttons {
-      span.make_changes {
-        @extend .text-danger;
-        text-decoration: underline;
-        cursor: pointer;
-      }
-    }
-  }
-
-  #list {
-    .category {
-      h3 {
-        padding: 5px 0 0 0;
-        margin: 0 0 13px 0;
-        border-top: 2px solid #666;
-        font-weight: normal;
-        line-height: 1em;
-      }
+      cursor: pointer;
     }
   }
 
@@ -118,74 +90,6 @@
     }
   }
 
-  #job {
-    .job-header {
-      padding-bottom: 15px;
-      margin-bottom: 15px;
-      border-bottom: 1px solid #eeeeee;
-
-      & > * {
-        padding-left: 10px;
-      }
-
-      h1.title {
-        margin: 0;
-      }
-
-      p {
-        &.company {
-          margin: 0;
-          font-weight: bold;
-          font-size: 16px;
-        }
-        &.crea
-        ted_at {
-          margin: 0 0 20px 0;
-        }
-
-        &.location {
-          margin: 0;
-          font-size: 16px;
-        }
-
-        &.url {
-          margin: 0;
-        }
-      }
-    }
-
-    .job-description {
-      margin-bottom: 15px;
-
-      & > * {
-        padding-left: 10px;
-      }
-
-      p:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    .job-instructions {
-      p.heading {
-        font-weight: bold;
-        font-size: 16px;
-      }
-
-      *:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    .job-share {
-      p {
-        &.preview-icons {
-          font-size: 22px;
-        }
-      }
-    }
-  }
-
   #preview {
     .content-header {
       margin-bottom: 30px;
@@ -252,7 +156,7 @@
       .cvv_types {
         margin-top: 1px;
 
-        .cvv{
+        .cvv {
           height: 31px;
           width: 51px;
           text-indent: -9999px;

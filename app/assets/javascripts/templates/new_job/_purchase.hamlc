@@ -7,7 +7,7 @@
 
 %form{ method: 'post' }
   .hidden
-    != JST['jobs/job_fields'] board: window.CurrentBoard
+    != JST['new_job/job_fields'] board: window.CurrentBoard
 
   .form-horizontal
     .form-group
@@ -43,5 +43,5 @@
       You are only permitted to post one job opening per ad (you cannot say “We have 4 open positions...”). This charge is non refundable. JobBoard.com reserves the right to deny or remove job posts at our discretion (we will refund your money if we don’t run your ad). If you have questions please send a message to support:
       %a{ href: '/' } http://jobboard.com/billing
     .content-header
-      != JST['jobs/action_buttons'] continueText: 'Place order and publish your ad'
+      != JST['new_job/action_buttons'] continueText: 'Place order and publish your ad'
     .clearfix

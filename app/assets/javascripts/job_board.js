@@ -1,4 +1,4 @@
-// This is a manifest file that'll be compiled into new_job.js, which will include all the files
+// This is a manifest file that'll be compiled into job_board.js, which will include all the files
 // listed below.
 //
 // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
@@ -14,18 +14,15 @@
 //= require underscore/underscore
 //= require backbone/backbone
 //= require backbone.stickit/backbone.stickit
-//= require backbone-validation/src/backbone-validation
 //= require hamlcoffee
 //= require marked/lib/marked
 //= require marked_options
-//= require jquery.payment/lib/jquery.payment
-//= require braintree.js/target/braintree-1.3.6.js
 //= require_tree ./support
-//= require new_job/new_job
+//= require job_board/job_board
 //= require_tree ./templates/jobs
-//= require_tree ./templates/new_job
-//= require_tree ./new_job/concerns
-//= require_tree ./new_job/models
-//= require_tree ./new_job/collections
-//= require_tree ./new_job/views
-//= require_tree ./new_job/app
+//= require_tree ./templates/job_board
+//= require_tree ./job_board/concerns
+//= require_tree ./job_board/models
+//= require_tree ./job_board/collections
+//= require_tree ./job_board/views
+//= require_tree ./job_board/app

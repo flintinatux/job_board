@@ -1,0 +1,66 @@
+#job {
+  .job-header {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eeeeee;
+
+    & > * {
+      padding-left: 10px;
+    }
+
+    h1.title {
+      margin: 0;
+    }
+
+    p {
+      &.company {
+        margin: 0;
+        font-weight: bold;
+        font-size: 16px;
+      }
+      &.created_at {
+        margin: 0 0 20px 0;
+      }
+
+      &.location {
+        margin: 0;
+        font-size: 16px;
+      }
+
+      &.url {
+        margin: 0;
+      }
+    }
+  }
+
+  .job-description {
+    margin-bottom: 15px;
+
+    & > * {
+      padding-left: 10px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .job-instructions {
+    p.heading {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .job-share {
+    p {
+      &.preview-icons {
+        font-size: 22px;
+      }
+    }
+  }
+}

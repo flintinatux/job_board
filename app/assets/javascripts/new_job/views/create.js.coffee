@@ -1,5 +1,5 @@
-class NewJob.Views.Create extends NewJob.CompositeView
-  template: JST['jobs/create']
+class NewJob.Views.Create extends Backbone.CompositeView
+  template: JST['new_job/create']
   id: 'create'
 
   initialize: (options) ->

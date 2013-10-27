@@ -1,4 +1,4 @@
-class NewJob.Views.Progress extends NewJob.CompositeView
+class NewJob.Views.Progress extends Backbone.CompositeView
   initialize: ->
     @listenTo NewJob.progress, 'change:step', @update
 

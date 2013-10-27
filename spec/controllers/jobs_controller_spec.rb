@@ -9,7 +9,7 @@ describe JobsController do
 
   describe 'GET #index' do
     let!(:categories_with_jobs) do
-      categories[0,2].each { |cat| FactoryGirl.create :job, category: cat }
+      categories[0,2].each { |category| FactoryGirl.create :job, category: category }
     end
 
     before { get :index, subdomain: board.subdomain }

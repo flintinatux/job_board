@@ -1,4 +1,4 @@
-class NewJob.CompositeView extends Backbone.View
+class Backbone.CompositeView extends Backbone.View
   initialize: ->
     super()
     @children = _([])

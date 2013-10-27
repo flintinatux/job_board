@@ -1,0 +1,9 @@
+.content-header
+  != JST['new_job/action_buttons'] continueText: 'Looks great! Continue to Step 3'
+  %h1.tk-goudy-bookletter-1911 Step 2: Preview your ad
+
+!= JST['jobs/job'] job: @job, preview: true
+
+.content-header
+  != JST['new_job/action_buttons'] continueText: 'Looks great! Continue to Step 3'
+.clearfix

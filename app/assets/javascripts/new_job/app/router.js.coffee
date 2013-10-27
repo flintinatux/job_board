@@ -1,7 +1,7 @@
-class NewJob.Router extends Backbone.Router
+class NewJob.Router extends Backbone.SwappingRouter
   initialize: ->
     super()
-    @$el = $('#jobs')
+    @$el = $('#new_job')
 
   routes:
     '':         'create'
@@ -26,10 +26,3 @@ class NewJob.Router extends Backbone.Router
     @cleanPage()
     NewJob.progress.set step: 'purchase'
     @swap new NewJob.Views.Purchase()
-
-  swap: (newView) ->
-    @currentView?.remove()
-    @currentView = newView
-    @$el.html @currentView.render().el
-    @currentView.swapped()
-    this
