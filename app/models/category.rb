@@ -17,7 +17,7 @@ class Category < ActiveRecord::Base
 
   validates :name, presence: true
 
-  default_scope { order('name asc') }
+  default_scope { order('updated_at desc') }
 
   def full_name
     "#{name} jobs"

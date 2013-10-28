@@ -1,10 +1,12 @@
 class CategoriesController < ApplicationController
-  before_action :signed_in_user, except: [:show]
+  before_action :signed_in_user, except: [:index, :show]
   before_action :find_board, only: [:new, :create, :edit, :update, :destroy]
   before_action :find_category, only: [:edit, :update, :destroy]
 
   def index
     @categories = @current_board.categories.includes(:jobs)
+    @categories.reject! { |category| category.jobs.size == 0 }
+    render json: @categories.as_json(include: :jobs)
   end
 
   def show

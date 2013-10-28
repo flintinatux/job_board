@@ -10,8 +10,14 @@ class JobBoard.Views.Category extends Backbone.CompositeView
     '.name':
       observe: 'name'
       onGet: (name) -> "#{name} Jobs"
+    '.updated_at':
+      attributes: [{
+        name: 'datetime'
+        observe: 'updated_at'
+      }]
 
   render: ->
     @$el.html @template()
     @stickit()
+    @$('time.timeago').timeago()
     this

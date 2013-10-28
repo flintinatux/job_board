@@ -14,6 +14,7 @@
       "html5shiv":            "~> 3.7.0",
       "json2":                "https://github.com/douglascrockford/JSON-js.git",
       "jquery.payment":       "~> 1.0.2",
+      "jquery-timeago":       "~> 1.3.0",
       "marked":               "~> 0.2.9",
       "respond":              "https://github.com/scottjehl/Respond.git",
       "underscore":           "~> 1.5.2"

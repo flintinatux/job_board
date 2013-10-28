@@ -17,6 +17,7 @@
 //= require hamlcoffee
 //= require marked/lib/marked
 //= require marked_options
+//= require jquery-timeago/jquery.timeago
 //= require_tree ./support
 //= require job_board/job_board
 //= require_tree ./templates/jobs

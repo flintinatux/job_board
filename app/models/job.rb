@@ -20,7 +20,7 @@
 class Job < ActiveRecord::Base
   include Parameterized
   parameterize_by :title
-  belongs_to :category
+  belongs_to :category, touch: true
   after_initialize :set_defaults
 
   DURATION = 30.days
@@ -34,7 +34,7 @@ class Job < ActiveRecord::Base
   validates :url,           url: true
   validates :email,         presence: true, format: { with: EMAIL_REGEX }
 
-  default_scope { order('created_at desc') }
+  default_scope { order('updated_at desc') }
 
   private
 
