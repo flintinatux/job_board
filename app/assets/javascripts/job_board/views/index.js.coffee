@@ -4,6 +4,6 @@ class JobBoard.Views.Index extends Backbone.CompositeView
 
   render: ->
     @$el.html @template()
-    @renderChild new JobBoard.Views.ActionBar el: @$('#action_bar')
-    # @renderChild new JobBoard.Views.Categories el: @$('#listings')
+    @renderChild new JobBoard.Views.ActionBar  el: @$('#action_bar')
+    @renderChild new JobBoard.Views.Categories el: @$('#categories')
     this

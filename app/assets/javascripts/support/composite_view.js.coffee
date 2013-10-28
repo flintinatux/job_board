@@ -1,13 +1,12 @@
 class Backbone.CompositeView extends Backbone.View
-  initialize: ->
-    super()
+  initialize: (options) ->
+    super(options)
     @children = _([])
 
   renderChild: (child) ->
-    child.render()
     @children.push child
     child.parent = this
-    this
+    child.render()
 
   remove: ->
     @trigger 'remove'

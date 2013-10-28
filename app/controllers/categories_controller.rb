@@ -3,8 +3,11 @@ class CategoriesController < ApplicationController
   before_action :find_board, only: [:new, :create, :edit, :update, :destroy]
   before_action :find_category, only: [:edit, :update, :destroy]
 
-  def show
+  def index
+    @categories = @current_board.categories.includes(:jobs)
+  end
 
+  def show
   end
 
   def new
