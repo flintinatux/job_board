@@ -1,2 +1,9 @@
 .category
-  %h3.tk-goudy-bookletter-1911= "#{category.name} Jobs"
+  %h3
+    %span.name.tk-goudy-bookletter-1911= "#{category.name} Jobs"
+    %small
+      Last post
+      %time.updated_at.timeago{ datetime: category.updated_at }
+        = time_ago_in_words category.updated_at
+  %ul.jobs
+    = render partial: 'jobs/listing', collection: category.jobs, as: :job

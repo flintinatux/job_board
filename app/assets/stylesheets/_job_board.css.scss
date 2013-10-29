@@ -25,6 +25,24 @@
           margin-left: 10px;
         }
       }
+
+      ul.jobs {
+
+
+        li {
+          list-style-type: none;
+          font-size: 13px;
+          margin: 0;
+
+          a {
+            display: block;
+            padding: 10px;
+            margin: 0;
+            color: #888;
+            border-bottom: 1px solid #e8e8e8;
+          }
+        }
+      }
     }
   }
 }

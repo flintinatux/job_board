@@ -6,18 +6,7 @@ class JobBoard.Views.Category extends Backbone.CompositeView
     super(options)
     @listenTo @model, 'remove', @remove
 
-  bindings:
-    '.name':
-      observe: 'name'
-      onGet: (name) -> "#{name} Jobs"
-    '.updated_at':
-      attributes: [{
-        name: 'datetime'
-        observe: 'updated_at'
-      }]
-
   render: ->
-    @$el.html @template()
-    @stickit()
+    @$el.html @template @model.attributes
     @$('time.timeago').timeago()
     this
