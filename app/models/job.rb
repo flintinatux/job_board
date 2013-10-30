@@ -34,7 +34,9 @@ class Job < ActiveRecord::Base
   validates :url,           url: true
   validates :email,         presence: true, format: { with: EMAIL_REGEX }
 
-  default_scope { order('updated_at desc') }
+  default_scope { order('created_at desc') }
+
+  scope :prioritized, -> { order('highlight desc') }
 
   private
 

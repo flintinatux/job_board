@@ -20,15 +20,18 @@ if Rails.env.development?
 
   board.categories.each do |category|
     unless category.jobs.any?
-      3.times.each do
+      (0..9).to_a.each do |i|
+        time = Time.now - i.days
         category.jobs.create! title: Faker::Company.catch_phrase,
           company:      Faker::Company.name,
           location:     "#{Faker::Address.city}, #{Faker::Address.state_abbr}",
           url:          Faker::Internet.url,
-          description:  Faker::Lorem.paragraphs(3).join("\n"),
+          description:  Faker::Lorem.paragraphs(3).join("\n\n"),
           instructions: Faker::Lorem.paragraph(2),
           email:        Faker::Internet.email,
-          highlight:    Random.new.rand < 0.3
+          highlight:    Random.new.rand < 0.3,
+          created_at:   time,
+          updated_at:   time
       end
     end
   end

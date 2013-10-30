@@ -41,6 +41,7 @@ class JobsController < ApplicationController
     def find_categories
       if params[:category_id]
         @categories = [ @current_board.categories.find_by(id: params[:category_id]) ]
+        @prioritize_jobs = true
       else
         @categories = @current_board.categories.includes :jobs
         @categories.reject! { |category| category.jobs.size == 0 }

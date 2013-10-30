@@ -1,5 +1,7 @@
 %li.job{ class: job.highlight ? 'highlight' : '' }
-  = link_to [job.category, job] do
+  - if job.created_at > 3.business_days.ago
+    %span.new New
+  = link_to [category, job] do
     %span.location= job.location
     %span.title= job.title
     %span.at at

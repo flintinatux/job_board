@@ -20,6 +20,14 @@
           font-size: 11px;
           margin-left: 10px;
         }
+
+        a {
+          color: #333;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
       }
 
       ul.jobs {
@@ -39,6 +47,24 @@
                 background: #fcf5ad;
               }
             }
+          }
+
+          span.new {
+            float: left;
+            position: relative;
+            left: -35px;
+            top: 11px;
+            background-color: #1ca3f1;
+            font-weight: bold;
+            color: #fff;
+            font-size: 8px;
+            text-transform: uppercase;
+            margin: 0;
+            margin-right: -35px;
+            padding: 3px 5px;
+            border-radius: 3px;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
           }
 
           a {
@@ -72,6 +98,7 @@
               color: #948b6e;
               float: right;
               font-size: 10px;
+              margin-top: 3px;
             }
           }
         }

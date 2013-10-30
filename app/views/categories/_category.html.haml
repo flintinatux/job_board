@@ -7,4 +7,5 @@
         = time_ago_in_words category.updated_at
         ago
   %ul.jobs
-    = render partial: 'jobs/listing', collection: category.jobs, as: :job
+    - jobs = @prioritize_jobs ? category.jobs.prioritized : category.jobs
+    = render partial: 'jobs/listing', collection: jobs, as: :job, locals: { category: category }
