@@ -1,11 +1,12 @@
 class JobsController < ApplicationController
-  before_action :find_categories, only: [:index, :show]
+  before_action :find_categories, only: [:index]
 
   def index
   end
 
   def show
-    @job = Job.find params[:id]
+    @category = Category.find params[:category_id]
+    @job = @category.jobs.find params[:id]
   end
 
   def new

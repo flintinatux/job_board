@@ -10,6 +10,8 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require twitter/bootstrap/modal
+//= require twitter/bootstrap/tooltip
 //= require json2/json2
 //= require underscore/underscore
 //= require backbone/backbone

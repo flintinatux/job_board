@@ -1,5 +1,5 @@
 %li.job{ class: job.highlight ? 'highlight' : '' }
-  = link_to job do
+  = link_to [job.category, job] do
     %span.location= job.location
     %span.title= job.title
     %span.at at

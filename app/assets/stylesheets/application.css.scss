@@ -42,7 +42,10 @@ body {
 
   #header {
     margin-top: 35px;
-    margin-bottom: 15px;
+
+    #inner_header {
+      margin-bottom: 15px;
+    }
 
     h1.title {
       float: left;
@@ -58,18 +61,20 @@ body {
       }
     }
 
-    p {
-      float: right;
-      font-size: 12px;
-      padding: 10px;
-      margin: 0;
-      line-height: 1.4em;
-      text-align: center;
-      color: #444;
-      // width: 490px;
-      border: 1px solid #c1cad9;
-      border-left: 0;
-      border-right: 0;
+    #tagline {
+      p {
+        float: right;
+        font-size: 12px;
+        padding: 10px;
+        margin: 0;
+        line-height: 1.4em;
+        text-align: center;
+        color: #444;
+        // width: 490px;
+        border: 1px solid #c1cad9;
+        border-left: 0;
+        border-right: 0;
+      }
     }
 
     nav {

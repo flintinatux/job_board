@@ -35,7 +35,7 @@ describe JobsController do
     end
 
     it "finds the correct category" do
-      assigns(:categories).should eq [category]
+      assigns(:category).should eq category
     end
 
     it "finds the correct job" do
