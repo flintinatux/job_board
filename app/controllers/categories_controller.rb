@@ -9,9 +9,6 @@ class CategoriesController < ApplicationController
     render json: @categories.as_json(include: :jobs)
   end
 
-  def show
-  end
-
   def new
     @category = @board.categories.build
   end

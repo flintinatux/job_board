@@ -15,7 +15,31 @@ describe JobsController do
     before { get :index, subdomain: board.subdomain }
 
     it "loads the categories with jobs" do
-      assigns(:categories).should eq categories_with_jobs
+      assigns(:categories).should eq categories_with_jobs.sort_by(&:updated_at).reverse
+    end
+
+    context "for specific category" do
+      before { get :index, subdomain: board.subdomain, category_id: category.id }
+
+      it "finds the correct category" do
+        assigns(:categories).should eq [category]
+      end
+    end
+  end
+
+  describe 'GET #show' do
+    let!(:this_job) { FactoryGirl.create :job, category: category }
+
+    before do
+      get :show, subdomain: board.subdomain, category_id: category.id, id: this_job.id
+    end
+
+    it "finds the correct category" do
+      assigns(:categories).should eq [category]
+    end
+
+    it "finds the correct job" do
+      assigns(:job).should eq this_job
     end
   end
 

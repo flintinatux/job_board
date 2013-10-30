@@ -3,16 +3,6 @@ require 'spec_helper'
 describe CategoriesController do
   let!(:board) { FactoryGirl.create :board }
 
-  describe 'GET #show' do
-    let(:category) { FactoryGirl.create :category, board: board }
-
-    before { get :show, subdomain: board.subdomain, id: category.id }
-
-    it "finds the right category" do
-      assigns(:category).should eq category
-    end
-  end
-
   context "with signed in user" do
     before do
       sign_in FactoryGirl.create(:user)

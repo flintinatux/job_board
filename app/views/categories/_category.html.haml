@@ -1,9 +1,10 @@
 .category
   %h3
-    %span.name.tk-goudy-bookletter-1911= "#{category.name} Jobs"
+    %span.name.tk-goudy-bookletter-1911= link_to "#{category.name} Jobs", category_jobs_path(category)
     %small
       Last post
       %time.updated_at.timeago{ datetime: category.updated_at }
         = time_ago_in_words category.updated_at
+        ago
   %ul.jobs
     = render partial: 'jobs/listing', collection: category.jobs, as: :job

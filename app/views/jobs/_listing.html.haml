@@ -1,6 +1,7 @@
-%li.job
+%li.job{ class: job.highlight ? 'highlight' : '' }
   = link_to job do
     %span.location= job.location
     %span.title= job.title
+    %span.at at
     %span.company= job.company
-    %span.date
+    %span.date= job.created_at.strftime '%b %-d'

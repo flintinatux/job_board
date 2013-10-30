@@ -3,11 +3,13 @@ JobBoard::Application.routes.draw do
   resources :boards do
     resources :categories, only: [:new, :create, :edit, :update, :destroy]
   end
-  resources :categories, only: [:index, :show]
-  resources :jobs do
+  resources :categories, only: [:index] do
+    resources :jobs, only: [:index, :show]
+  end
+  resources :jobs, except: [:show] do
     collection do
-      get  :search
-      get  :old_new
+      get :search
+      get :old_new
     end
   end
 

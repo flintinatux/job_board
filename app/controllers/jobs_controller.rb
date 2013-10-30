@@ -1,7 +1,11 @@
 class JobsController < ApplicationController
+  before_action :find_categories, only: [:index, :show]
+
   def index
-    @categories = @current_board.categories.includes :jobs
-    @categories.reject! { |category| category.jobs.size == 0 } unless Rails.env.development?
+  end
+
+  def show
+    @job = Job.find params[:id]
   end
 
   def new
@@ -31,6 +35,15 @@ class JobsController < ApplicationController
 
     def card
       @card ||= Card.new params[:card]
+    end
+
+    def find_categories
+      if params[:category_id]
+        @categories = [ @current_board.categories.find_by(id: params[:category_id]) ]
+      else
+        @categories = @current_board.categories.includes :jobs
+        @categories.reject! { |category| category.jobs.size == 0 }
+      end
     end
 
     def job
