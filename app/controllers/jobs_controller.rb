@@ -1,7 +1,14 @@
 class JobsController < ApplicationController
-  before_action :find_categories, only: [:index]
 
   def index
+    if params[:category_id]
+      @categories = [ @current_board.categories.find_by(id: params[:category_id]) ]
+      @prioritize_jobs = true
+    else
+      @categories = @current_board.categories.includes :jobs
+      @categories.reject! { |category| category.jobs.size == 0 }
+      @limited = true
+    end
   end
 
   def show
@@ -36,16 +43,6 @@ class JobsController < ApplicationController
 
     def card
       @card ||= Card.new params[:card]
-    end
-
-    def find_categories
-      if params[:category_id]
-        @categories = [ @current_board.categories.find_by(id: params[:category_id]) ]
-        @prioritize_jobs = true
-      else
-        @categories = @current_board.categories.includes :jobs
-        @categories.reject! { |category| category.jobs.size == 0 }
-      end
     end
 
     def job

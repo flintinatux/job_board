@@ -79,6 +79,19 @@
               background-color: #efebe3;
             }
 
+            &.view_all {
+              margin-top: 10px;
+              font-size: 13px;
+              padding: 10px;
+              color: $link-color;
+              border-bottom: 0;
+
+              &:hover {
+                background-color: transparent;
+                color: $link-hover-color;
+              }
+            }
+
             span.location {
               font-weight: bold;
               margin-right: 10px;

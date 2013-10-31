@@ -20,7 +20,7 @@ if Rails.env.development?
 
   board.categories.each do |category|
     unless category.jobs.any?
-      (0..9).to_a.each do |i|
+      (0 .. 9 + Random.new.rand(40)).to_a.each do |i|
         time = Time.now - i.days
         category.jobs.create! title: Faker::Company.catch_phrase,
           company:      Faker::Company.name,

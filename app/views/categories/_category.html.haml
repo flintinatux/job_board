@@ -6,6 +6,10 @@
       %time.updated_at.timeago{ datetime: category.updated_at }
         = time_ago_in_words category.updated_at
         ago
+
   %ul.jobs
     - jobs = @prioritize_jobs ? category.jobs.prioritized : category.jobs
-    = render partial: 'jobs/listing', collection: jobs, as: :job, locals: { category: category }
+    - shown_jobs = @limited ? jobs[0, job_limit] : jobs
+    = render partial: 'jobs/listing', collection: shown_jobs, as: :job, locals: { category: category }
+    - if shown_jobs.size < jobs.size
+      %li= link_to "View all #{jobs.size} #{category.name} jobs &rarr;".html_safe, category_jobs_path(category), class: :view_all
