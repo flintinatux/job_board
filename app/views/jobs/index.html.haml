@@ -12,6 +12,8 @@
     .col-sm-4.col-sm-offset-3
       = link_to "Post a job: #{ humanized_money_with_symbol @current_board.price } for 30 days", new_job_path, class: 'post_job btn btn-success btn-block'
 
-  - if @categories.any?
-    #categories
+  #categories
+    - if @categories.any?
       = render @categories
+    - elsif params[:term]
+      = render 'no_results_found'
