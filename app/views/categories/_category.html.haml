@@ -13,3 +13,5 @@
     = render partial: 'jobs/listing', collection: shown_jobs, as: :job, locals: { category: category }
     - if shown_jobs.size < jobs.size
       %li= link_to "View all #{jobs.size} #{category.name} jobs &rarr;".html_safe, category_jobs_path(category), class: :view_all
+    - if @category
+      %li= link_to "&larr; Back to all jobs".html_safe, root_path, class: :view_all

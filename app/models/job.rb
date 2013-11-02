@@ -19,7 +19,10 @@
 
 class Job < ActiveRecord::Base
   include Parameterized
+  include PgSearch
+
   parameterize_by :title
+  pg_search_scope :search, against: [:title, :location, :description, :instructions, :company], using: { tsearch: { prefix: true } }
   belongs_to :category, touch: true
   after_initialize :set_defaults
 

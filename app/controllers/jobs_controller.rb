@@ -2,7 +2,8 @@ class JobsController < ApplicationController
 
   def index
     if params[:category_id]
-      @categories = [ @current_board.categories.find_by(id: params[:category_id]) ]
+      @category = @current_board.categories.find params[:category_id]
+      @categories = [ @category ]
       @prioritize_jobs = true
     else
       @categories = @current_board.categories.includes :jobs

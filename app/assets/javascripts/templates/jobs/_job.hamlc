@@ -1,12 +1,15 @@
 #job
-  .job-header
-    %h1.title.tk-goudy-bookletter-1911= @job.title
-    %p.created_at.text-muted Posted Oct 11
-    %p.company= @job.company
-    %p.location= @job.location
-    - if @job.url
-      %p.url
-        %a{ href: @job.url }= @job.url
+  .job-header.row
+    .details.col-sm-8
+      %h1.title.tk-goudy-bookletter-1911= @job.title
+      %p.created_at.text-muted Posted Oct 11
+      %p.company= @job.company
+      %p.location= "Location: #{@job.location}"
+      - if @job.url
+        %p.url
+          %a{ href: @job.url }= @job.url
+    .col-sm-4
+      - # TODO: include job logo
   .row
     .job-description.col-sm-8
       != marked @job.description
