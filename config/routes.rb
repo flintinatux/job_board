@@ -9,7 +9,6 @@ JobBoard::Application.routes.draw do
   resources :jobs, except: [:show] do
     collection do
       get :search
-      get :old_new
     end
   end
 

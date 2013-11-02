@@ -3,11 +3,11 @@
 
 #job_board
   %nav#action_bar.row
-    %form{ action: '/jobs/search', method: 'get' }
+    = form_tag search_jobs_path, method: :get, remote: true, format: :js do
       .input-group.col-sm-5
         %span.input-group-addon
           %icon.icon-search
-        = text_field_tag :term, nil, class: 'form-control', placeholder: "Search: 'atlanta', 'full time', 'design'..."
+        = text_field_tag :term, params[:term], class: 'form-control', placeholder: "Search: 'atlanta', 'full time', 'design'..."
 
     .col-sm-4.col-sm-offset-3
       = link_to "Post a job: #{ humanized_money_with_symbol @current_board.price } for 30 days", new_job_path, class: 'post_job btn btn-success btn-block'

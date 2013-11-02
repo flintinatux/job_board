@@ -8,10 +8,10 @@
         ago
 
   %ul.jobs
-    - jobs = @prioritize_jobs ? category.jobs.prioritized : category.jobs
-    - shown_jobs = @limited ? jobs[0, job_limit] : jobs
+    - jobs = @jobs.select { |job| job.category_id == category.id }
+    - shown_jobs = @limited ? jobs[0, 20] : jobs
     = render partial: 'jobs/listing', collection: shown_jobs, as: :job, locals: { category: category }
-    - if shown_jobs.size < jobs.size
-      %li= link_to "View all #{jobs.size} #{category.name} jobs &rarr;".html_safe, category_jobs_path(category), class: :view_all
+    - if shown_jobs.length < @total_jobs[category.id]
+      %li= link_to "View all #{@total_jobs[category.id]} #{category.name} jobs &rarr;".html_safe, category_jobs_path(category), class: :view_all
     - if @category
       %li= link_to "&larr; Back to all jobs".html_safe, root_path, class: :view_all

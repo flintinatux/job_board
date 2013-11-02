@@ -8,14 +8,25 @@ describe JobsController do
   let(:card)       { FactoryGirl.attributes_for :card }
 
   describe 'GET #index' do
-    let!(:categories_with_jobs) do
-      categories[0,2].each { |category| FactoryGirl.create :job, category: category }
+    let!(:categories_with_jobs) { categories[0,2] }
+    let!(:jobs) do
+      categories_with_jobs.map do |category|
+        FactoryGirl.create :job, category: category
+      end
     end
 
     before { get :index, subdomain: board.subdomain }
 
+    it "loads the jobs for all categories" do
+      assigns(:jobs).should eq jobs.sort_by(&:created_at).reverse
+    end
+
     it "loads the categories with jobs" do
       assigns(:categories).should eq categories_with_jobs.sort_by(&:updated_at).reverse
+    end
+
+    it "totals the jobs for each category" do
+      assigns(:total_jobs).should == { 1 => 1, 2 => 1 }
     end
 
     context "for specific category" do
@@ -24,8 +35,35 @@ describe JobsController do
       it "finds the correct category" do
         assigns(:categories).should eq [category]
       end
+
+      it "loads the jobs for that one category" do
+        assigns(:jobs).should eq jobs.select { |job| job.category_id == category.id }
+      end
+
+      it "totals the jobs for that one category" do
+        assigns(:total_jobs).should == { 1 => 1 }
+      end
     end
   end
+
+  # TODO: testing search in an in-memory sqlite3 db doesn't work,
+  #       since full-text search is a postgresql feature.
+  #
+  # describe 'GET #search' do
+  #   let(:search_term) { ' An odd turn of phrase.'}
+  #   let!(:jobs) do
+  #     categories.map do |category|
+  #       FactoryGirl.create :job, category: category
+  #     end.tap do |jobs|
+  #       jobs[1].description << search_term
+  #       jobs[1].save
+  #     end
+  #   end
+  #
+  #   it "finds the jobs with the provided search term" do
+  #     assigns(:jobs).should eq jobs[1]
+  #   end
+  # end
 
   describe 'GET #show' do
     let!(:this_job) { FactoryGirl.create :job, category: category }

@@ -1,15 +1,7 @@
 class JobsController < ApplicationController
 
   def index
-    if params[:category_id]
-      @category = @current_board.categories.find params[:category_id]
-      @categories = [ @category ]
-      @prioritize_jobs = true
-    else
-      @categories = @current_board.categories.includes :jobs
-      @categories.reject! { |category| category.jobs.size == 0 }
-      @limited = true
-    end
+    params[:category_id] ? load_jobs_for_one_category : load_jobs_for_all_categories
   end
 
   def show
@@ -29,15 +21,12 @@ class JobsController < ApplicationController
     head :ok
   end
 
-  def preview
-    @job = Job.new job_params
-  end
-
   def search
-  end
-
-  def old_new
-    @job = Job.new
+    params[:term].present? ? search_for_jobs : load_jobs_for_all_categories
+    respond_to do |format|
+      format.html { render 'index' }
+      format.js
+    end
   end
 
   private
@@ -46,11 +35,43 @@ class JobsController < ApplicationController
       @card ||= Card.new params[:card]
     end
 
+    def total_jobs_for_each_category
+      @total_jobs = Job.unscoped.where(category_id: @current_board.category_ids).group(:category_id).count
+    end
+
     def job
       @job ||= Job.new job_params
     end
 
     def job_params
       params[:job].permit :title, :category_id, :location, :description, :instructions, :highlight, :company, :url, :email
+    end
+
+    def load_all_jobs
+      @jobs = Job.where category_id: @current_board.category_ids
+    end
+
+    def load_categories_with_jobs
+      @categories = @current_board.categories.where id: @jobs.map(&:category_id).uniq
+    end
+
+    def load_jobs_for_all_categories
+      load_all_jobs
+      load_categories_with_jobs
+      total_jobs_for_each_category
+      @limited = true
+    end
+
+    def load_jobs_for_one_category
+      @category = @current_board.categories.find params[:category_id]
+      @categories = [ @category ]
+      @jobs = @category.jobs.prioritized
+      @total_jobs = { @category.id => @jobs.length }
+    end
+
+    def search_for_jobs
+      @jobs = Job.search(params[:term]).live.newest.prioritized
+      load_categories_with_jobs
+      total_jobs_for_each_category
     end
 end

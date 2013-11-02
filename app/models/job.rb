@@ -37,9 +37,11 @@ class Job < ActiveRecord::Base
   validates :url,           url: true
   validates :email,         presence: true, format: { with: EMAIL_REGEX }
 
-  default_scope { order('created_at desc') }
+  scope :live,        -> { where('expires_at >= ?', Time.now) }
+  scope :newest,      -> { order('created_at desc') }
+  scope :prioritized, -> { order('highlight desc')  }
 
-  scope :prioritized, -> { order('highlight desc') }
+  default_scope { live.newest }
 
   private
 

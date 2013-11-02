@@ -30,4 +30,8 @@ class Board < ActiveRecord::Base
   validates :price,       numericality: { greater_than_or_equal_to: 1 }
 
   default_scope { order('title asc') }
+
+  def category_ids
+    categories.pluck :id
+  end
 end

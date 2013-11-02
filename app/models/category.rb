@@ -12,7 +12,7 @@
 class Category < ActiveRecord::Base
   include Parameterized
   parameterize_by :full_name
-  belongs_to :board
+  belongs_to :board, touch: true
   has_many :jobs, inverse_of: :category, dependent: :destroy
 
   validates :name, presence: true
