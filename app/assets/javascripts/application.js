@@ -14,6 +14,4 @@
 //= require respond/respond.min
 //= require jquery/jquery
 //= require jquery_ujs
-//= require jquery-pjax/jquery.pjax
-// require twitter/bootstrap
 //= require_tree ./application

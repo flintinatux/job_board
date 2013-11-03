@@ -1,7 +1,8 @@
 #inner_header.row
   %h1.title.tk-goudy-bookletter-1911.col-sm-6
-    %icon{ class: board_icon }
-    = link_to full_title, root_url
+    = link_to root_url do
+      %icon{ class: board_icon }
+      = full_title
   - if signed_in? and not params[:preview]
     %nav.col-sm-6
       = link_to signout_path, method: :delete, remote: :true, format: :js, class: 'btn btn-primary pull-right' do

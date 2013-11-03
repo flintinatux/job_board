@@ -8,7 +8,7 @@
     -#= auto_discovery_link_tag :atom, feed_url
     = csrf_meta_tags
     = yield(:head) if content_for?(:head)
-  %body
+  %body{ data: { pjax_container: true } }
     .container
       .row
         #header.col-sm-12

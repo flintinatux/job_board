@@ -1,9 +1,10 @@
+- provide :title, @job.title
+
 - content_for :header do
   = render 'default_header'
   %p.pull-right= link_to "See more #{@category.name} jobs &rarr;".html_safe, category_jobs_path(@category)
   %p= link_to "&larr; Back to all jobs".html_safe, root_path
   .clearfix
-
 
 #job_board
   = render 'job', job: @job
