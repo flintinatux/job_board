@@ -3,7 +3,7 @@
 
 #job_board
   %nav#action_bar.row
-    = form_tag search_jobs_path, method: :get, remote: true, format: :js do
+    = form_tag search_jobs_path, method: :get, id: :search do
       .input-group.col-sm-5
         %span.input-group-addon
           %icon.icon-search
@@ -12,7 +12,7 @@
     .col-sm-4.col-sm-offset-3
       = link_to "Post a job: #{ humanized_money_with_symbol @current_board.price } for 30 days", new_job_path, class: 'post_job btn btn-success btn-block'
 
-  #categories
+  #categories{ data: { pjax_container: true } }
     - if @categories.any?
       = render @categories
     - elsif params[:term]

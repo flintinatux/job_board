@@ -16,6 +16,7 @@ gem 'pg_array_parser'
 gem 'pg_search'
 gem 'puma'
 gem 'rack-no-www'
+gem 'rack-pjax'
 gem 'validate_url'
 
 # Frontend
