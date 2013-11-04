@@ -36,5 +36,4 @@ _.extend Backbone.Validation.callbacks,
     Backbone.history.start pushState: true, root: '/jobs/new'
 
 $(document).ready ->
-  $.pjax.disable()
   NewJob.initialize()

@@ -1,5 +1,0 @@
-<% if @categories.any? %>
-  $('#categories').html('<%= j render @categories %>');
-<% else %>
-  $('#categories').html('<%= j render "no_results_found" %>');
-<% end %>

@@ -1,6 +1,10 @@
 .row
   #footer.col-sm-12
     %p
-      The Job Board is a service of
-      = link_to 'JobBoard.com', 'http://jobboard.com'
-    = debug(params) if Rails.env.development?
+      = "The #{@current_board.title} board is a service of"
+      = link_to 'JobBoard.com', root_url(subdomain: nil)
+      %span.pull-right
+        = link_to 'Subscribe to the full RSS feed', '#'
+        or
+        = link_to 'follow @handle on Twitter', '#'
+        to find out when new jobs are posted.

@@ -23,10 +23,7 @@ class JobsController < ApplicationController
 
   def search
     params[:term].present? ? search_for_jobs : load_jobs_for_all_categories
-    respond_to do |format|
-      format.html { render 'index' }
-      format.js
-    end
+    render 'index'
   end
 
   private

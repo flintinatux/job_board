@@ -21,4 +21,5 @@
     - if @categories.any?
       = render @categories
     - elsif params[:term]
-      = render 'no_results_found'
+      %p.text-center.no_results
+        = "Sorry, we couldn't find any jobs matching the search term \"#{params[:term]}\"."

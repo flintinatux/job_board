@@ -114,9 +114,13 @@ body {
   #footer {
     overflow: hidden;
     margin-bottom: 40px;
-    padding-top: 10px;
-    font-size: 10px;
+    padding-top: 15px;
+    font-size: 11px;
     color: #666;
+
+    a {
+      text-decoration: underline;
+    }
   }
 }
 

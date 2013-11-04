@@ -6,6 +6,8 @@
       %time.updated_at.timeago{ datetime: category.updated_at }
         = time_ago_in_words category.updated_at
         ago
+    = link_to '#' do
+      = image_tag 'rss.png', size: '16', alt: 'rss feed', class: :feed
 
   %ul.jobs
     - jobs = @jobs.select { |job| job.category_id == category.id }
