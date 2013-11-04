@@ -1,5 +1,8 @@
 - provide :title, @job.title
 
+- content_for :head do
+  = javascript_include_tag "job_board", defer: :defer
+
 - content_for :header do
   = render 'default_header'
   %p.pull-right= link_to "See more #{@category.name} jobs &rarr;".html_safe, category_jobs_path(@category)

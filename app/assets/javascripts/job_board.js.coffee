@@ -13,6 +13,6 @@
 #= require jquery-pjax/jquery.pjax
 
 $(document).on 'submit', 'form#search', (event) ->
-  $.pjax.submit event, '[data-pjax-container]'
+  $.pjax.submit event, '#categories'
 
 $(document).pjax 'a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])', '[data-pjax-container]'
