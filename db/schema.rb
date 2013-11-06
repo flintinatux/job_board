@@ -18,11 +18,12 @@ ActiveRecord::Schema.define(version: 20131006121000) do
     t.string   "title"
     t.string   "tagline"
     t.string   "icon"
-    t.string   "syndicates",     default: [],                 array: true
+    t.string   "syndicates",                default: [],                 array: true
     t.string   "suggestions"
     t.text     "benefits"
-    t.integer  "price_cents",    default: 0,     null: false
-    t.string   "price_currency", default: "USD", null: false
+    t.integer  "price_cents",               default: 0,     null: false
+    t.string   "price_currency",            default: "USD", null: false
+    t.string   "uuid",           limit: 36,                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 20131006121000) do
   create_table "categories", force: true do |t|
     t.integer  "board_id"
     t.string   "name"
+    t.string   "uuid",       limit: 36, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -49,6 +51,7 @@ ActiveRecord::Schema.define(version: 20131006121000) do
     t.string   "company"
     t.string   "url"
     t.string   "email"
+    t.string   "uuid",         limit: 36, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

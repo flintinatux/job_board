@@ -11,6 +11,7 @@ class CreateJobs < ActiveRecord::Migration
       t.string    :company
       t.string    :url
       t.string    :email
+      t.string    :uuid,      null: false, limit: 36
 
       t.timestamps
     end

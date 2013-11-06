@@ -46,6 +46,7 @@ describe Job do
   it { should respond_to :company }
   it { should respond_to :url }
   it { should respond_to :email }
+  it { should respond_to :uuid }
 
   it { should be_valid }
 

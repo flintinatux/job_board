@@ -9,6 +9,7 @@ class CreateBoards < ActiveRecord::Migration
       t.string :suggestions
       t.text   :benefits
       t.money  :price
+      t.string :uuid,       null: false, limit: 36
 
       t.timestamps
     end

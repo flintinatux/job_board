@@ -4,10 +4,15 @@ JobBoard::Application.routes.draw do
     resources :categories, only: [:new, :create, :edit, :update, :destroy]
   end
   resources :categories, only: [:index] do
-    resources :jobs, only: [:index, :show]
+    resources :jobs, only: [:index, :show] do
+      collection do
+        get :feed, defaults: { format: 'atom' }
+      end
+    end
   end
   resources :jobs, except: [:show] do
     collection do
+      get :feed, defaults: { format: 'atom' }
       get :search
     end
   end

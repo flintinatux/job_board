@@ -5,7 +5,7 @@
     = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application", defer: :defer
     = render 'layouts/fonts'
-    -#= auto_discovery_link_tag :atom, feed_url
+    = auto_discovery_link_tag :atom, feed_jobs_url
     = csrf_meta_tags
     = yield(:head) if content_for?(:head)
   %body{ data: { pjax_container: true } }

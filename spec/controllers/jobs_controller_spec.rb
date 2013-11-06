@@ -46,6 +46,36 @@ describe JobsController do
     end
   end
 
+  describe 'GET #feed' do
+    let!(:jobs) do
+      categories.map do |category|
+        30.times.map { FactoryGirl.create :job, category: category }
+      end.flatten.sort_by(&:created_at).reverse
+    end
+
+    context "for the whole board" do
+      before { get :feed, format: :atom, subdomain: board.subdomain }
+
+      it "loads the 25 most recent jobs" do
+        assigns(:jobs).should eq jobs[0,25]
+      end
+    end
+
+    context "for one category" do
+      before do
+        get :feed, format: :atom, subdomain: board.subdomain, category_id: category.id
+      end
+
+      it "finds the category" do
+        assigns(:category).should eq category
+      end
+
+      it "loads the 25 most recent jobs for that category" do
+        assigns(:jobs).should eq jobs.select{ |job| job.category_id == category.id }[0,25]
+      end
+    end
+  end
+
   # TODO: testing search in an in-memory sqlite3 db doesn't work,
   #       since full-text search is a postgresql feature.
   #

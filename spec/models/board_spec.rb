@@ -40,6 +40,7 @@ describe Board do
   it { should respond_to :suggestions }
   it { should respond_to :benefits }
   it { should respond_to :price }
+  it { should respond_to :uuid }
 
   it { should be_valid }
 

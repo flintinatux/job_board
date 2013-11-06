@@ -21,6 +21,10 @@ class JobsController < ApplicationController
     head :ok
   end
 
+  def feed
+    params[:category_id] ? load_recent_jobs_for_category : load_recent_jobs_for_board
+  end
+
   def search
     params[:term].present? ? search_for_jobs : load_jobs_for_all_categories
     render 'index'
@@ -64,6 +68,15 @@ class JobsController < ApplicationController
       @categories = [ @category ]
       @jobs = @category.jobs.prioritized
       @total_jobs = { @category.id => @jobs.length }
+    end
+
+    def load_recent_jobs_for_board
+      @jobs = Job.where(category_id: @current_board.category_ids).limit(25)
+    end
+
+    def load_recent_jobs_for_category
+      @category = @current_board.categories.find params[:category_id]
+      @jobs = @category.jobs.limit(25)
     end
 
     def search_for_jobs

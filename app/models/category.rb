@@ -11,8 +11,9 @@
 
 class Category < ActiveRecord::Base
   include Parameterized
+  include Uuidentified
   parameterize_by :full_name
-  belongs_to :board, touch: true
+  belongs_to :board
   has_many :jobs, inverse_of: :category, dependent: :destroy
 
   validates :name, presence: true

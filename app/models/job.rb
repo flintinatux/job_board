@@ -20,6 +20,7 @@
 class Job < ActiveRecord::Base
   include Parameterized
   include PgSearch
+  include Uuidentified
 
   parameterize_by :title
   pg_search_scope :search, against: [:title, :location, :description, :instructions, :company], using: { tsearch: { prefix: true } }

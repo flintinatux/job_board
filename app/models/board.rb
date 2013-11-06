@@ -18,6 +18,7 @@
 
 class Board < ActiveRecord::Base
   include Parameterized
+  include Uuidentified
   parameterize_by :subdomain
   has_many :categories, inverse_of: :board, dependent: :destroy
   monetize :price_cents

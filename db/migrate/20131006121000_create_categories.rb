@@ -2,7 +2,8 @@ class CreateCategories < ActiveRecord::Migration
   def change
     create_table :categories do |t|
       t.integer :board_id
-      t.string :name
+      t.string  :name
+      t.string  :uuid,      null: false, limit: 36
 
       t.timestamps
     end
