@@ -47,11 +47,11 @@ ActiveRecord::Schema.define(version: 20131006121000) do
     t.text     "description"
     t.string   "instructions"
     t.datetime "expires_at"
-    t.boolean  "highlight"
+    t.boolean  "highlight",               default: false
     t.string   "company"
     t.string   "url"
     t.string   "email"
-    t.string   "uuid",         limit: 36, null: false
+    t.string   "uuid",         limit: 36,                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

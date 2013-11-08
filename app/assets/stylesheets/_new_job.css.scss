@@ -93,6 +93,10 @@
   #preview {
     .content-header {
       margin-bottom: 30px;
+
+      &.bottom {
+        margin-top: 25px;
+      }
     }
   }
 

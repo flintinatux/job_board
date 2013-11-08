@@ -12,6 +12,7 @@
 #  benefits       :text
 #  price_cents    :integer          default(0), not null
 #  price_currency :string(255)      default("USD"), not null
+#  uuid           :string(36)       not null
 #  created_at     :datetime
 #  updated_at     :datetime
 #

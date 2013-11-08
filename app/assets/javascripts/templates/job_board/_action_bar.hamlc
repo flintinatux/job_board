@@ -1,7 +1,7 @@
 %form{ action: '/jobs/search', method: 'get' }
   .input-group.col-sm-5
     %span.input-group-addon
-      %icon.icon-search
+      %i.fa.fa-search
     %input#query.form-control{ type: 'text', placeholder: 'Search: "atlanta", "full time", "design"...', name: 'query' }
     -#= text_field_tag :term, nil, class: 'form-control', placeholder: "Search: 'atlanta', 'full time', 'design'..."
 

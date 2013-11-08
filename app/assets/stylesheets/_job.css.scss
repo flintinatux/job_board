@@ -64,5 +64,28 @@
         font-size: 22px;
       }
     }
+
+    .list-group {
+      a.list-group-item {
+        color: $gray-light;
+
+        i.fa {
+          margin-right: 5px;
+          font-size: 16px;
+        }
+
+        .tweet {
+          color: $link-color;
+        }
+
+        &:hover {
+          color: $text-color;
+
+          .tweet {
+            color: $link-hover-color;
+          }
+        }
+      }
+    }
   }
 }

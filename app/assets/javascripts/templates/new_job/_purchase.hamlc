@@ -2,7 +2,7 @@
   %h1.tk-goudy-bookletter-1911 Step 3: Purchase your ad
 
 %h3.tk-goudy-bookletter-1911.text-info
-  %icon.icon-lock
+  %i.fa.fa-lock
   Enter your billing information:
 
 %form{ method: 'post' }

@@ -9,10 +9,11 @@
 #  description  :text
 #  instructions :string(255)
 #  expires_at   :datetime
-#  highlight    :boolean
+#  highlight    :boolean          default(FALSE)
 #  company      :string(255)
 #  url          :string(255)
 #  email        :string(255)
+#  uuid         :string(36)       not null
 #  created_at   :datetime
 #  updated_at   :datetime
 #
@@ -96,13 +97,9 @@ describe Job do
     it { should_not be_valid }
   end
 
-  describe "when initialized" do
-    it "sets :highlight to false by default" do
+  describe "highlight" do
+    it "defaults to false" do
       subject.highlight.should eq false
-    end
-
-    it "sets expires_at to some time later than now" do
-      subject.expires_at.should > Time.now
     end
   end
 
@@ -111,6 +108,10 @@ describe Job do
 
     it "includes the title in the param" do
       subject.to_param.should =~ /#{title.parameterize}/
+    end
+
+    it "sets expires_at to some time later than now" do
+      subject.expires_at.should > Time.now
     end
   end
 end

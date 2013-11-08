@@ -11,7 +11,7 @@
     = form_tag search_jobs_path, method: :get, id: :search do
       .input-group.col-sm-5
         %span.input-group-addon
-          %icon.icon-search
+          %i.fa.fa-search
         = text_field_tag :term, params[:term], class: 'form-control', placeholder: "Search: 'atlanta', 'full time', 'design'..."
 
     .col-sm-4.col-sm-offset-3

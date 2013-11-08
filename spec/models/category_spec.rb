@@ -5,6 +5,7 @@
 #  id         :integer          not null, primary key
 #  board_id   :integer
 #  name       :string(255)
+#  uuid       :string(36)       not null
 #  created_at :datetime
 #  updated_at :datetime
 #

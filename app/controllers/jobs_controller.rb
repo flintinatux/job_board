@@ -37,7 +37,7 @@ class JobsController < ApplicationController
     end
 
     def total_jobs_for_each_category
-      @total_jobs = Job.unscoped.where(category_id: @current_board.category_ids).group(:category_id).count
+      @total_jobs = Job.unscoped.live.where(category_id: @current_board.category_ids).group(:category_id).count
     end
 
     def job

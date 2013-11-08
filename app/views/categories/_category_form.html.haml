@@ -1,10 +1,10 @@
 = form_for [@board, @category], remote: true, format: :js do |f|
   = render layout: 'content_header', locals: { title: title } do
     %button.btn.btn-primary{ data: { disable_with: 'Saving...' } }
-      %icon.icon-save
+      %i.fa.fa-save
       Save category
     = link_to boards_path, class: 'btn btn-default' do
-      %icon.icon-remove
+      %i.fa.fa-remove
       Cancel
   = render 'form_error_message', object: f.object
   .row

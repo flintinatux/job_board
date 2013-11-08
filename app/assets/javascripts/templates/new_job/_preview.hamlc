@@ -4,6 +4,6 @@
 
 != JST['jobs/job'] job: @job, preview: true
 
-.content-header
+.content-header.bottom
   != JST['new_job/action_buttons'] continueText: 'Looks great! Continue to Step 3'
 .clearfix

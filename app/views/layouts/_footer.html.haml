@@ -1,7 +1,8 @@
 .row
   #footer.col-sm-12
     %p
-      = "The #{@current_board.title} board is a service of"
+      - if @current_board
+        = "The #{@current_board.title} board is a service of"
       = link_to 'JobBoard.com', root_url(subdomain: nil)
       %span.pull-right
         = link_to 'Subscribe to the full RSS feed', feed_jobs_url, data: { skip_pjax: true }

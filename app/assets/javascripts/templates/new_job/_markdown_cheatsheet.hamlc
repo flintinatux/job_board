@@ -9,14 +9,14 @@
           .col-sm-5.text-center
             %p Bold with **two asterisks**
           %p.col-sm-2.text-center.text-muted
-            %icon.icon-arrow-right
+            %i.fa.fa-arrow-right
           .col-sm-5.text-center!= marked 'Bold with **two asterisks**'
 
         .row
           .col-sm-5.text-center
             %p Italicize with _underscores_
           %p.col-sm-2.text-center.text-muted
-            %icon.icon-arrow-right
+            %i.fa.fa-arrow-right
           .col-sm-5.text-center!= marked 'Italicize with _underscores_'
 
         .row
@@ -29,7 +29,7 @@
               = '- Bulleted lists'
           %p.col-sm-2.text-center.text-muted
             %br
-            %icon.icon-arrow-right
+            %i.fa.fa-arrow-right
           .col-sm-offset-1.col-sm-4.text-left!= marked '- Use dashes\n- To make\n- Bulleted lists'
 
         .row
@@ -42,14 +42,14 @@
               = '3. Numbered lists'
           %p.col-sm-2.text-center.text-muted
             %br
-            %icon.icon-arrow-right
+            %i.fa.fa-arrow-right
           .col-sm-offset-1.col-sm-4.text-left!= marked '1. Use numbers\n2. To make\n3. Numbered lists'
 
         .row
           .col-sm-5.text-center
             %p [Linkify](http://google.com)
           %p.col-sm-2.text-center.text-muted
-            %icon.icon-arrow-right
+            %i.fa.fa-arrow-right
           .col-sm-5.text-center!= marked '[Linkify](http://google.com)'
 
         %p.more-details.text-center

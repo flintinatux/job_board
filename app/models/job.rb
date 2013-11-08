@@ -9,10 +9,11 @@
 #  description  :text
 #  instructions :string(255)
 #  expires_at   :datetime
-#  highlight    :boolean
+#  highlight    :boolean          default(FALSE)
 #  company      :string(255)
 #  url          :string(255)
 #  email        :string(255)
+#  uuid         :string(36)       not null
 #  created_at   :datetime
 #  updated_at   :datetime
 #
@@ -25,7 +26,7 @@ class Job < ActiveRecord::Base
   parameterize_by :title
   pg_search_scope :search, against: [:title, :location, :description, :instructions, :company], using: { tsearch: { prefix: true } }
   belongs_to :category, touch: true
-  after_initialize :set_defaults
+  before_create :set_expiration
 
   DURATION = 30.days
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -38,16 +39,16 @@ class Job < ActiveRecord::Base
   validates :url,           url: true
   validates :email,         presence: true, format: { with: EMAIL_REGEX }
 
-  scope :live,        -> { where('expires_at >= ?', Time.now) }
-  scope :newest,      -> { order('created_at desc') }
-  scope :prioritized, -> { order('highlight desc')  }
+  scope :expired,     -> { where 'expires_at < ?',  Time.now }
+  scope :live,        -> { where 'expires_at >= ?', Time.now }
+  scope :newest,      -> { order 'created_at desc' }
+  scope :prioritized, -> { order 'highlight desc'  }
 
   default_scope { live.newest }
 
   private
 
-    def set_defaults
-      self.highlight  ||= false
+    def set_expiration
       self.expires_at ||= Time.now + DURATION
     end
 end

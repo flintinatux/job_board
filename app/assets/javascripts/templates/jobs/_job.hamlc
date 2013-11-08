@@ -1,24 +1,34 @@
 #job
   .job-header.row
-    .details.col-sm-8
+    .details.col-sm-9
       %h1.title.tk-goudy-bookletter-1911= @job.title
-      %p.created_at.text-muted Posted Oct 11
+      %p.created_at.text-muted= "Posted #{moment(@job.created_at).format('MMM Do')}"
       %p.company= @job.company
       %p.location= "Location: #{@job.location}"
       - if @job.url
         %p.url
           %a{ href: @job.url }= @job.url
-    .col-sm-4
+    .col-sm-3
       - # TODO: include job logo
   .row
-    .job-description.col-sm-8
+    .job-description.col-sm-9
       != autolink marked @job.description
-    .job-share.col-sm-4
+    .job-share.col-sm-3
       - if @preview
         %p.text-muted.text-center.preview-icons
-          %icon.icon-envelope-alt
-          %icon.icon-twitter
+          %i.fa.fa-envelope-o
+          %i.fa.fa-twitter
         %p.text-muted Tools to share this job listing via email and Twitter will appear here when your listing is published.
+      - else
+        .list-group
+          - subject = "#{@job.company} is hiring a #{@job.title}"
+          - body = "#{subject} at #{@original_url}"
+          %a.list-group-item{ href: encodeURI("mailto:?subject=#{subject}&body=#{body}") }
+            %i.fa.fa-envelope.email
+            Tell a friend
+          %a.list-group-item{ href: encodeURI("http://twitter.com/home?status=#{body}") }
+            %i.fa.fa-twitter.tweet
+            Tweet this job
   .job-instructions.well.col-sm-12
     %p.heading Apply for this position:
     != autolink marked @job.instructions

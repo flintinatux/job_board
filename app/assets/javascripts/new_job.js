@@ -20,6 +20,7 @@
 //= require hamlcoffee
 //= require marked/lib/marked
 //= require marked_options
+//= require momentjs/moment
 //= require jquery.payment/lib/jquery.payment
 //= require braintree.js/target/braintree-1.3.6.js
 //= require_tree ./support

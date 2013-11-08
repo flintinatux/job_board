@@ -7,7 +7,7 @@ class CreateJobs < ActiveRecord::Migration
       t.text      :description
       t.string    :instructions
       t.datetime  :expires_at
-      t.boolean   :highlight
+      t.boolean   :highlight, default: false
       t.string    :company
       t.string    :url
       t.string    :email

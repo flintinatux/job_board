@@ -4,7 +4,7 @@
 #boards
   = render layout: 'content_header', locals: { title: 'All boards' } do
     = link_to new_board_path, class: 'btn btn-primary pull-right' do
-      %icon.icon-plus
+      %i.fa.fa-plus
       New board
 
   - if @boards.any?
