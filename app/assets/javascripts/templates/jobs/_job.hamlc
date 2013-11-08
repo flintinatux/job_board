@@ -12,7 +12,7 @@
       - # TODO: include job logo
   .row
     .job-description.col-sm-8
-      != marked @job.description
+      != autolink marked @job.description
     .job-share.col-sm-4
       - if @preview
         %p.text-muted.text-center.preview-icons
@@ -21,4 +21,4 @@
         %p.text-muted Tools to share this job listing via email and Twitter will appear here when your listing is published.
   .job-instructions.well.col-sm-12
     %p.heading Apply for this position:
-    != marked @job.instructions
+    != autolink marked @job.instructions
