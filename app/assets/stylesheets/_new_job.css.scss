@@ -61,8 +61,23 @@
         text-align: left;
       }
 
-      p.help {
+      .filename {
+        padding-top: 6px;
+        line-height: 20px;
+      }
+
+      .format {
         margin: 0 0 5px 0;
+      }
+
+      .help-text {
+        color: $gray-light;
+        font-size: 13px;
+        margin: -5px 0 0 0;
+      }
+
+      .progress {
+        margin: 0;
       }
     }
 

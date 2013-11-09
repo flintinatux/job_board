@@ -9,7 +9,7 @@
         %p.url
           %a{ href: @job.url }= @job.url
     .col-sm-3
-      - # TODO: include job logo
+      %img.img-rounded.img-responsive{ src: 'http://placehold.it/185x150&text=Company+logo' }
   .row
     .job-description.col-sm-9
       != autolink marked @job.description

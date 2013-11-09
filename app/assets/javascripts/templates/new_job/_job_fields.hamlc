@@ -19,7 +19,7 @@
 
 .form-group.row
   %label.col-sm-4.control-label{ for: 'description' } Job description
-  %p.help.col-sm-4.text-right.text-muted
+  %p.format.col-sm-4.text-right.text-muted
     Format with
     %a{ href: '#markdown', 'data-toggle': 'modal' } Markdown syntax
   .col-sm-8
@@ -27,7 +27,7 @@
 
 .form-group.row
   %label.col-sm-4.control-label{ for: 'instructions' } How do people apply for this job?
-  %p.help.col-sm-4.text-right.text-muted
+  %p.format.col-sm-4.text-right.text-muted
     Format with
     %a{ href: '#markdown', 'data-toggle': 'modal' } Markdown syntax
   .col-sm-8
@@ -41,6 +41,22 @@
       %label.col-sm-2.control-label{ for: 'company' } Name
       .col-sm-10
         %input.form-control#company{ name: 'job[company]', type: 'text', placeholder: 'Enter your company or organization’s name.' }
+
+    .form-group
+      %label.col-sm-2.control-label{ form: 'logo' } Logo
+      .col-sm-10
+        .row
+          .col-sm-4
+            .btn.btn-primary.btn-block.upload Choose file
+          .col-sm-8.filename
+            / %span No file chosen
+            .progress.progress-striped
+              .progress-bar{ role: 'progressbar', 'aria-valuenow': 60, 'aria-valuemin': 0, 'aria-valuemax': 100, style: 'width: 60%;' }
+                %span.sr-only 60% complete
+
+    .form-group
+      .col-sm-10.col-sm-offset-2
+        %p.help-text Optional - Your company logo will appear at the top of your listing. 185px wide is optimal. We'll resize automatically if it's wider than 185px.
 
     .form-group
       %label.col-sm-2.control-label{ for: 'url' } URL

@@ -1,6 +1,0 @@
-%h3
-  %span.name.tk-goudy-bookletter-1911= @name
-  %small
-    Last post
-    %time.updated_at.timeago{ datetime: @updated_at }
-%ul.jobs
