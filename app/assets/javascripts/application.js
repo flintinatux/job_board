@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require html5shiv/dist/html5shiv
-//= require respond/respond.min
+//= require respond/dest/respond.min
 //= require jquery/jquery
 //= require jquery_ujs
 //= require_tree ./application

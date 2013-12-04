@@ -40,14 +40,14 @@
       margin: 0 0 15px 0;
     }
 
-    form {
+    .form {
       margin-bottom: 15px;
 
       & > * {
         padding-left: 10px;
       }
 
-      button[type=submit] {
+      button.continue {
         margin: 20px 0 10px 10px;
       }
 
@@ -78,6 +78,18 @@
 
       .progress {
         margin: 0;
+      }
+
+      form#upload {
+        position: relative;
+
+        input[type=file] {
+          position: absolute;
+          top: 0;
+          height: 33px;
+          width: 159px;
+          opacity: 0;
+        }
       }
     }
 

@@ -42,21 +42,22 @@
       .col-sm-10
         %input.form-control#company{ name: 'job[company]', type: 'text', placeholder: 'Enter your company or organization’s name.' }
 
-    .form-group
-      %label.col-sm-2.control-label{ form: 'logo' } Logo
-      .col-sm-10
-        .row
-          .col-sm-4
-            .btn.btn-primary.btn-block.upload Choose file
-          .col-sm-8.filename
-            / %span No file chosen
-            .progress.progress-striped
-              .progress-bar{ role: 'progressbar', 'aria-valuenow': 60, 'aria-valuemin': 0, 'aria-valuemax': 100, style: 'width: 60%;' }
-                %span.sr-only 60% complete
-
-    .form-group
-      .col-sm-10.col-sm-offset-2
-        %p.help-text Optional - Your company logo will appear at the top of your listing. 185px wide is optimal. We'll resize automatically if it's wider than 185px.
+    - #.form-group
+    - #  %label.col-sm-2.control-label{ for: 'logo' } Logo
+    - #  .col-sm-4
+    - #    %form#upload.upload{ 'accept-charset': 'UTF-8', action: '/images.js', method: 'post', 'data-remote': true }
+    - #      %input{ name: 'utf8', type: 'hidden', value: '&#x2713;' }
+    - #      .btn.btn-primary.btn-block Choose file
+    - #      %input{ name: 'logo', type: 'file' }
+    - #      -#.btn.btn-primary.btn-block.upload Choose file
+    - #  .col-sm-8.filename
+    - #    %span No file chosen
+    - #    .progress.progress-striped
+    - #      .progress-bar{ role: 'progressbar', 'aria-valuenow': 60, 'aria-valuemin': 0, 'aria-valuemax': 100, style: 'width: 60%;' }
+    - #        %span.sr-only 60% complete
+    - #.form-group
+    - #  .col-sm-10.col-sm-offset-2
+    - #    %p.help-text Optional - Your company logo will appear at the top of your listing. 185px wide is optimal. We'll resize automatically if it's wider than 185px.
 
     .form-group
       %label.col-sm-2.control-label{ for: 'url' } URL
