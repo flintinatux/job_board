@@ -19,5 +19,14 @@ module JobBoard
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    config.assets.precompile += %w(
+      card_types.png
+      cvv2.gif
+      cvv2_amex.gif
+      application.js
+      job_board.js
+      new_job.js
+    )
   end
 end
