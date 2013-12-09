@@ -6,7 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-if Rails.env.development?
+case
+when Rails.env.development?
   require 'faker'
 
   user = User.first || User.create!(name: 'Scott McCormack', email: 'mccormack.scott@gmail.com', password: 'rivoli', password_confirmation: 'rivoli')
@@ -36,4 +37,7 @@ if Rails.env.development?
       end
     end
   end
+
+when Rails.env.production?
+  user = User.first || User.create!(name: 'Scott McCormack', email: ENV['ADMIN_USER'], password: ENV['ADMIN_PASSWORD'], password_confirmation: ENV['ADMIN_PASSWORD'])
 end
